@@ -1,20 +1,22 @@
 #include <stdio.h>
 int main()
 {
-    char G;
-    printf("Enter the first letter of your gender : ");
-    scanf("%1c",&G);
-    if(G=='M'||G=='m')
-    {
-        printf("\nYou're a MAN");
+   int a,b,c,d,f=0;
+   a = 153;
+   c= a;
+   while(c!=0){
+    c/=10;
+    b++;
+   }
+   c=a;
+   while(c!=0){
+    d= c%10;
+    c/=10;
+    int i;
+    int e=1;
+    for(i=1;i<=b;i++){
+        e = e*d;
     }
-    else if(G=='W'||G=='w')
-    {
-        printf("\nYou're a WOMAN");
-    }
-    else
-    {
-        printf("\nInvalid Gender");
-    }
-    return 0;
-}
+    f= f+e;
+   }
+   printf("%d",f);}
