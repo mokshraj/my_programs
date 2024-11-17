@@ -1,15 +1,12 @@
 #include <stdio.h>
 int main()
 {
-    int n =10,a=0,b=1,c;
-    printf("%d %d",a,b);
-    while(n!=0)
-    {
-        c=a+b;
-        printf(" %d",c);
-        a=b;
-        b=c;
-        n--;
+    int a=0,i,array[5]={1,2,3,4,5};
+    for(i=0;i<5;i++){
+        if(array[i] > array[i+1]){
+            a = array[i];
+        }
     }
+    printf("%d",a);
     return 0;
 }
