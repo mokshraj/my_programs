@@ -101,3 +101,38 @@
 //     int a = 3;
 //     printf("%d",++a);
 // }
+
+// #include <stdio.h>
+// int main(){
+//     int arr[5]={12,44,3,30,11},i,j,temp,min;
+
+//     for(i=0;i<5;i++){
+//         min =i;//store every index in a variable
+//         for(j=i+1;j<5;j++){
+//             if(arr[j]<arr[min])
+//                 min=j;
+//         }
+
+//         if(min!=i){
+//             temp=arr[i];
+//             arr[i]=arr[min];
+//             arr[min]=temp;
+//         }
+//     }
+//     for(i=0;i<5;i++)
+//         printf("%d  ",arr[i]);
+//     return 0;
+// }
+
+#include <stdio.h>
+#include <string.h>
+int main(){
+    char name[5];
+    char str1[]={"Test"};
+    char str2[]={"Rest"};
+    char str3[5];
+    int len;
+    printf("strcat: %s\n",strcat(str1,str2));
+    
+    
+    }
