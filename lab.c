@@ -133,6 +133,4 @@ int main(){
     char str3[5];
     int len;
     printf("strcat: %s\n",strcat(str1,str2));
-    
-    
     }
