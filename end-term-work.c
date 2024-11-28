@@ -37,3 +37,35 @@
 //     printf("%d",v);
 //     return 0;
 // }
+
+// //LCM program
+// #include<stdio.h>
+// int HCF(int x,int y){
+//     int temp;
+//     if(x>y){
+//     while(y!=0){
+//         temp=x%y;
+//         x=y;
+//         y=temp;
+//     }
+//     return x;}
+//     else{
+//         while(x!=0){
+//         temp=y%x;
+//         y=x;
+//         x=temp;
+//     }
+//     return y;
+// }}
+// int LCM(int a,int b){
+//     int HCF(int,int);
+//     int lcm;
+//     lcm=(a*b)/HCF(a,b);
+//     return lcm;
+// }
+// int main(){
+//     int HCF(int,int);
+//     printf("%d",HCF(25,20));
+//     printf("\n%d",LCM(25,20));
+//     return 0;
+// }
