@@ -1,27 +1,4 @@
-// #include <stdio.h>
-// #include <string.h>
-// int main(){
-//     char name[20];
-//     printf("Enter a string : ");
-//     scanf("%s",&name);
-//     int i,a= strlen(name);
-//     for(i=0;i<a;i++){
-//         printf("%d\n",name[i]);
-//     }
-//     return 0;
-// }
-
-// #include <stdio.h>
-// #include <string.h>
-// int main(){
-//     char str[6],str2[6]="shita";
-//     printf("before strcpy str1: %s str2: %s \n",str,str2);
-//     strcpy(str,str2);
-//     printf("after strcpy str1: %s str2: %s \n",str,str2);
-//     printf("No. of characters in the string : %d",strlen(str2));
-//     return 0;
-// }
-
+// //palendrome check program
 // #include <stdio.h>
 // #include <string.h>
 // int main(){
@@ -42,6 +19,7 @@
 //     return 0;
 // }
 
+// //Vowel count program
 // #include <stdio.h>
 // #include <string.h>
 // int main(){
@@ -57,17 +35,5 @@
 //         }
 //     }
 //     printf("%d",v);
-//     return 0;
-// }
-
-// float sum(float x,float y){
-//     float a;
-//     a = x + y;
-//     return a;
-// }
-// #include <stdio.h>
-// int main(){
-//     float sum(float,float);
-//     printf("%.2f",sum(1.0,1.0));
 //     return 0;
 // }
