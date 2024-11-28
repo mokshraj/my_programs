@@ -22,31 +22,31 @@
 //     return 0;
 // }
 
-// #include <stdio.h>
-// #include <string.h>
-// int main(){
-//     char str[4],str1[4],str2[4];
-//     int i;
-//     scanf("%3s",&str);
-//     strcpy(str2,str);
-//     for(i=strlen(str);i<-1;i--){
-//         strcat(str1,str);
-//     }
-//     printf("%s %s",str,str1);
-//     if(str2 == str1){
-//         printf("it's a palendrome");
-//     }
-//     else{
-//         printf("it's not a palendrome");
-//     }
-//     return 0;
-// }
+#include <stdio.h>
+#include <string.h>
+int main(){
+    char str[4],str1[4],temp[2];
+    int i;
+    printf("Enter a 3 alphabet palendrome : ");
+    scanf("%3s",&str);
+    for(i=strlen(str);i>=0;i--){
+        temp[0]=str[i];temp[1]='\0';
+        strcat(str1,temp);
+    }
+    if(strcmp(str,str1)==0){
+        printf("it's a palendrome");
+    }
+    else{
+        printf("it's not a palendrome");
+    }
+    return 0;
+}
 
 // #include <stdio.h>
 // #include <string.h>
 // int main(){
 //     char str[10];
-//     int j,v,i,vowels[]={'a','e','i','o','u'};
+//     int j,v=0,i,vowels[]={'a','e','i','o','u'};
 //     int consonents[]={};
 //     scanf("%s",&str);
 //     for(i=0;i<strlen(str);i++){
@@ -59,14 +59,15 @@
 //     return 0;
 // }
 
-float sum(float x,float y){
-    float a;
-    a = x + y;
-    return a;
-}
-#include <stdio.h>
-int main(){
-    float sum(float,float);
-    printf("%.2f",sum(1.0,1.0));
-    return 0;
-}
+// float sum(float x,float y){
+//     float a;
+//     a = x + y;
+//     return a;
+// }
+// #include <stdio.h>
+// int main(){
+//     float sum(float,float);
+//     printf("%.2f",sum(1.0,1.0));
+//     return 0;
+// }
+
