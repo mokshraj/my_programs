@@ -42,22 +42,23 @@
 //     return 0;
 // }
 
-// #include <stdio.h>
-// #include <string.h>
-// int main(){
-//     char str[10];
-//     int j,v=0,i,vowels[]={'a','e','i','o','u'};
-//     int consonents[]={};
-//     scanf("%s",&str);
-//     for(i=0;i<strlen(str);i++){
-//         for(j=0;j<5;j++){
-//             if((char)str[i] == (char)vowels[j])
-//                 v++;
-//         }
-//     }
-//     printf("%d",v);
-//     return 0;
-// }
+#include <stdio.h>
+#include <string.h>
+int main(){
+    char str[10],temp1[2],temp2[2];temp2[1]='\0';temp1[1]='\0';
+    int j,v=0,i,vowels[]={'a','e','i','o','u'};
+    int consonents[]={};
+    scanf("%s",&str);
+    for(i=0;i<strlen(str);i++){
+        for(j=0;j<5;j++){
+            temp1[0]=str[i];temp2[0]=vowels[j];
+            if(strcmp(temp1,temp2)==0)
+                v++;
+        }
+    }
+    printf("%d",v);
+    return 0;
+}
 
 // float sum(float x,float y){
 //     float a;
