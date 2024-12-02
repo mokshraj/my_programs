@@ -124,13 +124,29 @@
 //     return 0;
 // }
 
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
+// int main(){
+//     char name[5];
+//     char str1[]={"Test"};
+//     char str2[]={"Rest"};
+//     char str3[5];
+//     int len;
+//     printf("strcat: %s\n",strcat(str1,str2));
+//     return 0;
+//     }
+
+#include<stdio.h>
 int main(){
-    char name[5];
-    char str1[]={"Test"};
-    char str2[]={"Rest"};
-    char str3[5];
-    int len;
-    printf("strcat: %s\n",strcat(str1,str2));
-    }
+    int a =5;
+    int *p;
+    p =&a;
+    printf("Value at P is : %d",*p);
+    printf("\nValue od address : %d",p);
+    int *q,b=10;
+    q=&b;
+    printf("\n\nBefore : value at pointer q : %d",*q);
+    *q=*p;
+    printf("\n\nAfter : value at pointer q : %d",*q);
+    return 0;
+}
