@@ -151,11 +151,35 @@
 //     return 0;
 // }
 
+// #include<stdio.h>
+// int main(){
+//     int a=5,*p;
+//     p=&a;
+//     printf("\nValue of address %d",p);
+//     printf("\nValue of address %d",p+3);
+//     return 0;
+// }
+
+// #include <stdio.h>
+// int main(){
+//     char name[6]="Chris";
+//     char *p;
+//     p=name;
+//     while(*p!='\0'){
+//         printf("%c",*p);
+//         p++;
+//     }
+//     return 0;
+// }
+
 #include<stdio.h>
 int main(){
-    int a=5,*p;
-    p=&a;
-    printf("\nValue of address %d",p);
-    printf("\nValue of address %d",p+3);
+    int arr[5]={1,2,3,4,5},i=0;
+    int *p=&arr[0];
+    while(i<5){
+        printf("%d ",*p);
+        p++;
+        i++;
+    }
     return 0;
 }
