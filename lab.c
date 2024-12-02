@@ -136,17 +136,26 @@
 //     return 0;
 //     }
 
+// #include<stdio.h>
+// int main(){
+//     int a =5;
+//     int *p;
+//     p =&a;
+//     printf("Value at P is : %d",*p);
+//     printf("\nValue od address : %d",p);
+//     int *q,b=10;
+//     q=&b;
+//     printf("\n\nBefore : value at pointer q : %d",*q);
+//     *q=*p;
+//     printf("\n\nAfter : value at pointer q : %d",*q);
+//     return 0;
+// }
+
 #include<stdio.h>
 int main(){
-    int a =5;
-    int *p;
-    p =&a;
-    printf("Value at P is : %d",*p);
-    printf("\nValue od address : %d",p);
-    int *q,b=10;
-    q=&b;
-    printf("\n\nBefore : value at pointer q : %d",*q);
-    *q=*p;
-    printf("\n\nAfter : value at pointer q : %d",*q);
+    int a=5,*p;
+    p=&a;
+    printf("\nValue of address %d",p);
+    printf("\nValue of address %d",p+3);
     return 0;
 }
