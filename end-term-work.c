@@ -103,42 +103,61 @@
 //     return 0;
 // }
 
-//Addtion matrices
+// //Addtion matrices
+// #include <stdio.h>
+// int main(){
+//     int matr1[2][3]={
+//         {1,2,3},
+//         {1,2,3}
+//     };
+//     int matr2[2][3]={
+//         {1,2,3},
+//         {1,2,3}
+//     };
+//     for(int i=0;i<2;i++){
+//         for(int j=0;j<3;j++){
+//             printf("%d ",matr1[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     printf("\n");
+//     for(int i=0;i<2;i++){
+//         for(int j=0;j<3;j++){
+//             printf("%d ",matr2[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     int matr3[2][3];
+//     for(int i=0;i<2;i++){
+//         for(int j=0;j<3;j++){
+//             matr3[i][j]=matr1[i][j]+matr2[i][j];
+//         }
+//     }
+//     printf("\n");
+//     for(int i=0;i<2;i++){
+//         for(int j=0;j<3;j++){
+//             printf("%d ",matr3[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     return 0;
+// }
+
+//Find Sum of Digits By Function
 #include <stdio.h>
+int digits_sum(int a){
+    int sum=0;
+    while(a!=0){
+        sum = sum + a%10;
+        a/=10;
+    }
+    return sum;
+}
 int main(){
-    int matr1[2][3]={
-        {1,2,3},
-        {1,2,3}
-    };
-    int matr2[2][3]={
-        {1,2,3},
-        {1,2,3}
-    };
-    for(int i=0;i<2;i++){
-        for(int j=0;j<3;j++){
-            printf("%d ",matr1[i][j]);
-        }
-        printf("\n");
-    }
-    printf("\n");
-    for(int i=0;i<2;i++){
-        for(int j=0;j<3;j++){
-            printf("%d ",matr2[i][j]);
-        }
-        printf("\n");
-    }
-    int matr3[2][3];
-    for(int i=0;i<2;i++){
-        for(int j=0;j<3;j++){
-            matr3[i][j]=matr1[i][j]+matr2[i][j];
-        }
-    }
-    printf("\n");
-    for(int i=0;i<2;i++){
-        for(int j=0;j<3;j++){
-            printf("%d ",matr3[i][j]);
-        }
-        printf("\n");
-    }
+    int a;
+    int digits_sum(int);
+    printf("Enter a number for addition : ");
+    scanf("%d",&a);
+    printf("Sum of Digits of given number : %d",digits_sum(a));
     return 0;
 }
