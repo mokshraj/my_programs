@@ -69,3 +69,36 @@
 //     printf("\n%d",LCM(25,20));
 //     return 0;
 // }
+
+//array sort find second largest no.
+#include <stdio.h>
+void bublsort(int *arr,int n){
+    int *addr = arr;
+    for(int i=0;i<n;i++){
+        arr = addr;
+        for(int j=0;j<n-i-1;j++){
+            int a = *arr;
+            int b = *(arr + 1);
+            if(a>b){
+                int temp = *arr;
+                *arr=*(arr+1);
+                *(arr+1)=temp;
+            }
+            arr++;
+        }
+    }
+}
+int main(){
+    int arr[]={5,4,3,2,1};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    printf("Given array : ");
+    for(int i=0;i<n;i++){
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+    void bublsort(int[],int);
+    bublsort(arr,n);
+    int sec_large = arr[n-2];
+    printf("Second Largest no. in array : %d",sec_large);
+
+}
