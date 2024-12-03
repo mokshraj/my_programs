@@ -1,4 +1,4 @@
-// //palendrome check program
+// //Palendrome check program
 // #include <stdio.h>
 // #include <string.h>
 // int main(){
@@ -70,35 +70,75 @@
 //     return 0;
 // }
 
-//array sort find second largest no.
+// //Array sort find second largest no.
+// #include <stdio.h>
+// void bublsort(int *arr,int n){
+//     int *addr = arr;
+//     for(int i=0;i<n;i++){
+//         arr = addr;
+//         for(int j=0;j<n-i-1;j++){
+//             int a = *arr;
+//             int b = *(arr + 1);
+//             if(a>b){
+//                 int temp = *arr;
+//                 *arr=*(arr+1);
+//                 *(arr+1)=temp;
+//             }
+//             arr++;
+//         }
+//     }
+// }
+// int main(){
+//     int arr[]={5,4,3,2,1};
+//     int n = sizeof(arr)/sizeof(arr[0]);
+//     printf("Given array : ");
+//     for(int i=0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+//     printf("\n");
+//     void bublsort(int[],int);
+//     bublsort(arr,n);
+//     int sec_large = arr[n-2];
+//     printf("Second Largest no. in array : %d",sec_large);
+//     return 0;
+// }
+
+//Addtion matrices
 #include <stdio.h>
-void bublsort(int *arr,int n){
-    int *addr = arr;
-    for(int i=0;i<n;i++){
-        arr = addr;
-        for(int j=0;j<n-i-1;j++){
-            int a = *arr;
-            int b = *(arr + 1);
-            if(a>b){
-                int temp = *arr;
-                *arr=*(arr+1);
-                *(arr+1)=temp;
-            }
-            arr++;
-        }
-    }
-}
 int main(){
-    int arr[]={5,4,3,2,1};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    printf("Given array : ");
-    for(int i=0;i<n;i++){
-        printf("%d ",arr[i]);
+    int matr1[2][3]={
+        {1,2,3},
+        {1,2,3}
+    };
+    int matr2[2][3]={
+        {1,2,3},
+        {1,2,3}
+    };
+    for(int i=0;i<2;i++){
+        for(int j=0;j<3;j++){
+            printf("%d ",matr1[i][j]);
+        }
+        printf("\n");
     }
     printf("\n");
-    void bublsort(int[],int);
-    bublsort(arr,n);
-    int sec_large = arr[n-2];
-    printf("Second Largest no. in array : %d",sec_large);
-
+    for(int i=0;i<2;i++){
+        for(int j=0;j<3;j++){
+            printf("%d ",matr2[i][j]);
+        }
+        printf("\n");
+    }
+    int matr3[2][3];
+    for(int i=0;i<2;i++){
+        for(int j=0;j<3;j++){
+            matr3[i][j]=matr1[i][j]+matr2[i][j];
+        }
+    }
+    printf("\n");
+    for(int i=0;i<2;i++){
+        for(int j=0;j<3;j++){
+            printf("%d ",matr3[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
 }
