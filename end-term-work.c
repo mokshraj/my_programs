@@ -143,21 +143,36 @@
 //     return 0;
 // }
 
-//Find Sum of Digits By Function
+// //Find Sum of Digits By Function
+// #include <stdio.h>
+// int digits_sum(int a){
+//     int sum=0;
+//     while(a!=0){
+//         sum = sum + a%10;
+//         a/=10;
+//     }
+//     return sum;
+// }
+// int main(){
+//     int a;
+//     int digits_sum(int);
+//     printf("Enter a number for addition : ");
+//     scanf("%d",&a);
+//     printf("Sum of Digits of given number : %d",digits_sum(a));
+//     return 0;
+// }
+
+//Length of String using Pointers
 #include <stdio.h>
-int digits_sum(int a){
-    int sum=0;
-    while(a!=0){
-        sum = sum + a%10;
-        a/=10;
-    }
-    return sum;
-}
 int main(){
-    int a;
-    int digits_sum(int);
-    printf("Enter a number for addition : ");
-    scanf("%d",&a);
-    printf("Sum of Digits of given number : %d",digits_sum(a));
-    return 0;
+char str[] ="asdfghjk";
+char *pstr = str;
+int slen=0;
+printf("Given string : %s",str);
+while(*pstr!='\0'){
+    slen++;
+    pstr++;
+}
+printf("\nLength of given string : %d",slen);
+return 0;
 }
