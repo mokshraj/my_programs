@@ -203,27 +203,27 @@
 //     return 0;
 // }
 
-//Calloc array
-#include <stdio.h>
-#include <stdlib.h>
-int main(){
-    int n,*ptr,i,sum=0;
-    printf("Enter the number of elements: ");
-    scanf("%d",&n);
-    ptr=(int*)calloc(n,sizeof(int));
-    printf("Enter %d numbers \n",n);
-    for(i=0;i<n;i++){
-        scanf("%d",ptr+i);
-        sum = sum + *(ptr+i);
-    }
-    printf("\nElements are : ");
-    for(i=0;i<n;i++){
-        printf("%d ",*(ptr+i));
-    }
-    printf("\nThe addition of the elements is : %d",sum);
-    free(ptr);
-    return 0;
-}
+// //Calloc array
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(){
+//     int n,*ptr,i,sum=0;
+//     printf("Enter the number of elements: ");
+//     scanf("%d",&n);
+//     ptr=(int*)calloc(n,sizeof(int));
+//     printf("Enter %d numbers \n",n);
+//     for(i=0;i<n;i++){
+//         scanf("%d",ptr+i);
+//         sum = sum + *(ptr+i);
+//     }
+//     printf("\nElements are : ");
+//     for(i=0;i<n;i++){
+//         printf("%d ",*(ptr+i));
+//     }
+//     printf("\nThe addition of the elements is : %d",sum);
+//     free(ptr);
+//     return 0;
+// }
 
 // //File open program;
 // #include <stdio.h>
