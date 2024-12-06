@@ -184,20 +184,55 @@
 //     return 0;
 // }
 
-//Malloc array
+// //Malloc array
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(){
+//     int a,i,*ptr;
+//     printf("Enter total no. of values:");
+//     scanf("%d",&a);
+//     ptr = (int*)malloc(a*sizeof(int));
+//     printf("Before : %d\n",ptr);
+//     for(i=0;i<a;i++){
+//         scanf("%d",ptr+i);
+//     }
+//     for(i=0;i<a;i++){
+//         printf("%d ",*(ptr+i));
+//     }
+//     free(ptr);
+//     return 0;
+// }
+
+//Calloc array
 #include <stdio.h>
 #include <stdlib.h>
 int main(){
-    int a,i,*ptr;
-    printf("Enter total no. of values:");
-    scanf("%d",&a);
-    ptr = (int*)malloc(a*sizeof(int));
-    printf("Before : %d\n",ptr);
-    for(i=0;i<a;i++){
+    int n,*ptr,i,sum=0;
+    printf("Enter the number of elements: ");
+    scanf("%d",&n);
+    ptr=(int*)calloc(n,sizeof(int));
+    printf("Enter %d numbers \n",n);
+    for(i=0;i<n;i++){
         scanf("%d",ptr+i);
+        sum = sum + *(ptr+i);
     }
-    for(i=0;i<a;i++){
+    printf("\nElements are : ");
+    for(i=0;i<n;i++){
         printf("%d ",*(ptr+i));
     }
+    printf("\nThe addition of the elements is : %d",sum);
+    free(ptr);
     return 0;
 }
+
+// //File open program;
+// #include <stdio.h>
+// int main(){
+//     char ch;
+//     FILE *fptr;
+//     fptr = fopen("C:\\file.txt","r");
+//     while((ch=fgetc(fptr)) !=EOF)
+//         printf("%c",ch);
+//     fclose(fptr);
+//     return 0;
+// }
