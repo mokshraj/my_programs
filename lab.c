@@ -172,14 +172,32 @@
 //     return 0;
 // }
 
-#include<stdio.h>
+// #include<stdio.h>
+// int main(){
+//     int arr[5]={1,2,3,4,5},i=0;
+//     int *p=&arr[0];
+//     while(i<5){
+//         printf("%d ",*p);
+//         p++;
+//         i++;
+//     }
+//     return 0;
+// }
+
+//Malloc array
+#include <stdio.h>
+#include <stdlib.h>
 int main(){
-    int arr[5]={1,2,3,4,5},i=0;
-    int *p=&arr[0];
-    while(i<5){
-        printf("%d ",*p);
-        p++;
-        i++;
+    int a,i,*ptr;
+    printf("Enter total no. of values:");
+    scanf("%d",&a);
+    ptr = (int*)malloc(a*sizeof(int));
+    printf("Before : %d\n",ptr);
+    for(i=0;i<a;i++){
+        scanf("%d",ptr+i);
+    }
+    for(i=0;i<a;i++){
+        printf("%d ",*(ptr+i));
     }
     return 0;
 }
