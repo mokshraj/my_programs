@@ -19,29 +19,29 @@
 //     return 0;
 // }
 
-//Vowel count program
-#include <stdio.h>
-#include <string.h>
-int vowel_count(char str[]){
-    char temp1[2],temp2[2];temp2[1]='\0';temp1[1]='\0';
-    int j,v=0,i,vowels[]={'a','e','i','o','u'};
-    for(i=0;i<strlen(str);i++){
-        for(j=0;j<5;j++){
-            temp1[0]=str[i];temp2[0]=vowels[j];
-            if(strcmp(temp1,temp2)==0)
-                v++;
-        }
-    }
-    return v;
-}
-int main(){
-    char str[10];
-    printf("Enter a string of lenght 9 : ");
-    scanf("%s",&str);
-    int vowel_count(char[]);
-    printf("%d",vowel_count(str));
-    return 0;
-}
+// //Vowel count program
+// #include <stdio.h>
+// #include <string.h>
+// int vowel_count(char str[]){
+//     char temp1[2],temp2[2];temp2[1]='\0';temp1[1]='\0';
+//     int j,v=0,i,vowels[]={'a','e','i','o','u'};
+//     for(i=0;i<strlen(str);i++){
+//         for(j=0;j<5;j++){
+//             temp1[0]=str[i];temp2[0]=vowels[j];
+//             if(strcmp(temp1,temp2)==0)
+//                 v++;
+//         }
+//     }
+//     return v;
+// }
+// int main(){
+//     char str[10];
+//     printf("Enter a string of lenght 9 : ");
+//     scanf("%s",&str);
+//     int vowel_count(char[]);
+//     printf("%d",vowel_count(str));
+//     return 0;
+// }
 
 // //LCM program
 // #include<stdio.h>
@@ -308,3 +308,145 @@ int main(){
 //     return 0;
 // }
 
+// // Function to perform matrix multiplication
+// #include <stdio.h>
+// void multiplyMatrices(int mat1[][10], int mat2[][10], int res[][10], int row1, int col1, int row2, int col2) {
+//     for (int i = 0; i < row1; i++) {
+//         for (int j = 0; j < col2; j++) {
+//             res[i][j] = 0;
+//         }
+//     }
+//     for (int i = 0; i < row1; i++) {
+//         for (int j = 0; j < col2; j++) {
+//             for (int k = 0; k < col1; k++) {
+//                 res[i][j] += mat1[i][k] * mat2[k][j];
+//             }
+//         }
+//     }
+// }
+// int main() {
+//     int mat1[10][10], mat2[10][10], res[10][10];
+//     int row1, col1, row2, col2;
+//     printf("Enter the number of rows and columns for the first matrix: ");
+//     scanf("%d %d", &row1, &col1);
+//     printf("Enter the number of rows and columns for the second matrix: ");
+//     scanf("%d %d", &row2, &col2);
+//     if (col1 != row2) {
+//         printf("Matrix multiplication not possible. Columns of the first matrix must equal rows of the second matrix.\n");
+//         return 1;
+//     }
+//     printf("Enter elements of the first matrix:\n");
+//     for (int i = 0; i < row1; i++) {
+//         for (int j = 0; j < col1; j++) {
+//             scanf("%d", &mat1[i][j]);
+//         }
+//     }
+//     printf("Enter elements of the second matrix:\n");
+//     for (int i = 0; i < row2; i++) {
+//         for (int j = 0; j < col2; j++) {
+//             scanf("%d", &mat2[i][j]);
+//         }
+//     }
+//     multiplyMatrices(mat1, mat2, res, row1, col1, row2, col2);
+//     printf("Resultant matrix after multiplication:\n");
+//     for (int i = 0; i < row1; i++) {
+//         for (int j = 0; j < col2; j++) {
+//             printf("%d ", res[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     return 0;
+// }
+
+// // Dynamically allocate memory for an array
+// #include <stdio.h>
+// #include <stdlib.h>
+// int* allocateArray(int size)
+// {
+// int* arr = (int*) malloc(size * sizeof(int));
+// if (arr == NULL)
+// {
+// printf("Memory allocation failed!\n");
+// exit(1);
+// }
+// return arr;
+// }
+// void inputArray(int* arr, int size)
+// {
+// printf("Enter %d elements:\n", size);
+// for (int i = 0; i < size; i++)
+// {
+// scanf("%d", &arr[i]);
+// }
+// }
+// void printArray(int* arr, int size)
+// {
+// printf("Array elements:\n");
+// for (int i = 0; i < size; i++)
+// {
+// printf("%d ", arr[i]);
+// }
+// printf("\n");
+// }
+// void performOperations(int* arr, int size)
+// {
+// int sum = 0, max = arr[0], min = arr[0];
+// for (int i = 0; i < size; i++)
+// {
+// sum += arr[i];
+// if (arr[i] > max)
+// {
+// max = arr[i];
+// }
+// if (arr[i] < min)
+// {
+// min = arr[i];
+// }
+// }
+// printf("Sum of elements: %d\n", sum);
+// printf("Maximum element: %d\n", max);
+// printf("Minimum element: %d\n", min);
+// }
+// void freeMemory(int* arr)
+// {
+// free(arr);
+// }
+// int main()
+// {
+// int size;
+// printf("Enter the size of the array: ");
+// scanf("%d", &size);
+// int* arr = allocateArray(size);
+// inputArray(arr, size);
+// printArray(arr, size);
+// performOperations(arr, size);
+// freeMemory(arr);
+// return 0;
+// }
+
+//Program to create and write data to a file
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+FILE *file;
+char filename[100], data[1000];
+printf("Enter the filename to create: ");
+scanf("%s", filename);
+file = fopen(filename, "w");
+if (file == NULL) {
+printf("Error! Could not open file.\n");
+exit(1);
+}
+printf("Enter data to write to the file (end with an empty line):\n");
+getchar();
+while (1) {
+fgets(data, sizeof(data), stdin);
+if (data[0] == '\n') {
+break;
+}
+fprintf(file, "%s", data);
+}
+fclose(file);
+printf("Data written to %s successfully.\n", filename);
+return 0;
+}
