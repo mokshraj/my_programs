@@ -424,29 +424,82 @@
 // return 0;
 // }
 
-//Program to create and write data to a file
+// //Program to create and write data to a file
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main() {
+// FILE *file;
+// char filename[100], data[1000];
+// printf("Enter the filename to create: ");
+// scanf("%s", filename);
+// file = fopen(filename, "w");
+// if (file == NULL) {
+// printf("Error! Could not open file.\n");
+// exit(1);
+// }
+// printf("Enter data to write to the file (end with an empty line):\n");
+// getchar();
+// while (1) {
+// fgets(data, sizeof(data), stdin);
+// if (data[0] == '\n') {
+// break;
+// }
+// fprintf(file, "%s", data);
+// }
+// fclose(file);
+// printf("Data written to %s successfully.\n", filename);
+// return 0;
+// }
+
+// //Program to Read data from a file and display it on the screen
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main() {
+// FILE *file;
+// char filename[100], ch;
+// printf("Enter the filename to read: ");
+// scanf("%s", filename);
+// file = fopen(filename, "r");
+// if (file == NULL) {
+// printf("Error! Could not open file.\n");
+// exit(1);
+// }
+// printf("\nContents of %s:\n", filename);
+// while ((ch = fgetc(file)) != EOF) {
+// putchar(ch);
+// }
+// fclose(file);
+// return 0;
+// }
+
+//Program to Copy the contents of one file to another file
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-FILE *file;
-char filename[100], data[1000];
-printf("Enter the filename to create: ");
-scanf("%s", filename);
-file = fopen(filename, "w");
-if (file == NULL) {
-printf("Error! Could not open file.\n");
+FILE *sourceFile, *destFile;
+char sourceFilename[100], destFilename[100];
+char ch;
+printf("Enter the source filename: ");
+scanf("%s", sourceFilename);
+printf("Enter the destination filename: ");
+scanf("%s", destFilename);
+sourceFile = fopen(sourceFilename, "r");
+if (sourceFile == NULL) {
+printf("Error! Could not open source file.\n");
 exit(1);
 }
-printf("Enter data to write to the file (end with an empty line):\n");
-getchar();
-while (1) {
-fgets(data, sizeof(data), stdin);
-if (data[0] == '\n') {
-break;
+destFile = fopen(destFilename, "w");
+if (destFile == NULL) {
+printf("Error! Could not open destination file.\n");
+fclose(sourceFile);
+exit(1);
 }
-fprintf(file, "%s", data);
+while ((ch = fgetc(sourceFile)) != EOF) {
+fputc(ch, destFile);
 }
-fclose(file);
-printf("Data written to %s successfully.\n", filename);
+printf("Contents of %s have been copied to %s successfully.\n", sourceFilename,
+destFilename);
+fclose(sourceFile);
+fclose(destFile);
 return 0;
 }
