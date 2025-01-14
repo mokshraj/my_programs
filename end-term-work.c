@@ -70,8 +70,8 @@
 // }
 // int main(){
 //     int HCF(int,int);
-//     printf("%d",HCF(25,20));
-//     printf("\n%d",LCM(25,20));
+//     printf("HCF OF 25 AND 20 : %d",HCF(25,20));
+//     printf("\nLCM OF 25 AND 20 : %d",LCM(25,20));
 //     return 0;
 // }
 
