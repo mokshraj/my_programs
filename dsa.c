@@ -63,25 +63,25 @@
 //     return 0;
 // }
 
-// //delete an element from array
-// #include <stdio.h>
-// int main(){
-//     int arr[]={1,2,3,4,5};
-//     int i;
-//     printf("for given array : ");
-//     for(i=0;i < sizeof(arr)/4;i++){
-//         printf("%d, ",arr[i]);
-//     }
-//     int pos;
-//     printf("\nEnter the postion of element you want to delete : ");
-//     scanf("%d",&pos);
-//     pos--;
-//     for(i = pos; i < sizeof(arr)/4; i++){
-//         arr[i] = arr[i+1];
-//     }
-//     printf("\narray after deletion : ");
-//     for(i=0;i < sizeof(arr)/4;i++){
-//         printf("%d, ",arr[i]);
-//     }
-//     return 0;
-// }
+//delete an element from array
+#include <stdio.h>
+int main(){
+    int arr[]={1,2,3,4,5};
+    int i;
+    printf("for given array : ");
+    for(i=0;i < sizeof(arr)/4;i++){
+        printf("%d, ",arr[i]);
+    }
+    int pos;
+    printf("\nEnter the postion of element you want to delete : ");
+    scanf("%d",&pos);
+    pos--;
+    for(i = pos; i < sizeof(arr)/4; i++){
+        arr[i] = arr[i+1];
+    }
+    printf("\narray after deletion : ");
+    for(i=0;i < sizeof(arr)/4;i++){
+        printf("%d, ",arr[i]);
+    }
+    return 0;
+}
