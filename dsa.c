@@ -63,25 +63,52 @@
 //     return 0;
 // }
 
-//delete an element from array
+// //delete an element from array
+// #include <stdio.h>
+// int main(){
+//     int arr[]={1,2,3,4,5};
+//     int i;
+//     printf("for given array : ");
+//     for(i=0;i < sizeof(arr)/4;i++){
+//         printf("%d, ",arr[i]);
+//     }
+//     int pos;
+//     printf("\nEnter the postion of element you want to delete : ");
+//     scanf("%d",&pos);
+//     pos--;
+//     for(i = pos; i < sizeof(arr)/4; i++){
+//         arr[i] = arr[i+1];
+//     }
+//     printf("\narray after deletion : ");
+//     for(i=0;i < sizeof(arr)/4;i++){
+//         printf("%d, ",arr[i]);
+//     }
+//     return 0;
+// }
+
+// //Sum of even elements
+// #include <stdio.h>
+// int main(){
+//     int arr[4] = {1,2,3,44};
+//     int n  = sizeof(arr)/4;
+//     int i;
+//     printf("for given array : ");
+//     for(i=0;i<n;i++){
+//         printf("%d, ",arr[i]);
+//     }
+//     int sum =0;
+//     for(i = 0;i < n ;i++){
+//         if(arr[i]%2 == 0){
+//         sum = sum + arr[i];}
+//     }
+//     printf("\nsum even elements of array is %d",sum);
+//     return 0;
+// }
+
+//find duplicate elements in array
 #include <stdio.h>
 int main(){
-    int arr[]={1,2,3,4,5};
+    int arr[] = {1,1,2,2,33,5,6};
     int i;
-    printf("for given array : ");
-    for(i=0;i < sizeof(arr)/4;i++){
-        printf("%d, ",arr[i]);
-    }
-    int pos;
-    printf("\nEnter the postion of element you want to delete : ");
-    scanf("%d",&pos);
-    pos--;
-    for(i = pos; i < sizeof(arr)/4; i++){
-        arr[i] = arr[i+1];
-    }
-    printf("\narray after deletion : ");
-    for(i=0;i < sizeof(arr)/4;i++){
-        printf("%d, ",arr[i]);
-    }
-    return 0;
+    for(i=0;i<sizeof(arr)/4;)
 }
