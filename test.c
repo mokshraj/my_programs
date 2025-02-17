@@ -71,3 +71,13 @@
 //     printf("%.2f",sum(1.0,1.0));
 //     return 0;
 // }
+
+#include <stdio.h>
+int main(){
+    int arr[4];
+    int i;
+    for(i=0;i<4;i++){
+        printf("%d\n",arr[i]);
+    }
+    return 0;
+}

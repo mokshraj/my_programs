@@ -109,6 +109,40 @@
 #include <stdio.h>
 int main(){
     int arr[] = {1,1,2,2,33,5,6};
-    int i;
-    for(i=0;i<sizeof(arr)/4;)
+    int dp[sizeof(arr)/4];
+    int i,j,dpc,dch,dc=0;
+    for(i=0;i<sizeof(arr)/4;i++){
+        for(j=i+1;j<sizeof(arr)/4;j++){
+            if(arr[i]==arr[j]){
+                for(dpc=0;dpc<sizeof(dp)/4;dpc++){
+                    if(dp[dpc]==arr[i]){
+                        dch = 0;
+                    }
+                    else{
+                        dch =1;
+                    }
+                }
+                if(dch==1){
+                    dp[dc]=arr[i];
+                    dc++;
+                }
+                
+            }
+        }
+    }
+    printf("given array : ");
+    for(i=0;i<sizeof(arr)/4;i++){
+        printf("%d ,",arr[i]);
+    }
+    printf("\n");
+    for(i=0;i<dc;i++){
+        printf("The following indexs :  ");
+        for(j=0;j<sizeof(arr)/4;j++){
+            if(dp[i]==arr[j]){
+                printf("%d ,",j);
+            }
+        }
+        printf(" are duplicates of \"%d\" in the given array.\n");
+    }
+    return 0;
 }
