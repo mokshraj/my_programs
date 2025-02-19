@@ -180,7 +180,56 @@
 //     return 0;
 // }
 
-//check how many elements are negative and positive
+// //check how many elements are negative and positive
+// #include<stdio.h>
+// int main(){
+//     int i,n;
+//     printf("Enter the size of array you want to make : ");
+//     scanf("%d",&n);
+//     int arr[n];
+//     printf("Enter the values : ");
+//     for(i=0;i<n;i++){
+//         scanf("%d",&arr[i]);
+//     }
+//     int arrp[n],arrn[n],arrz[n];
+//     int p=0,z=0;
+//     n=0;
+//     printf("For given array : ");
+//     for(i=0;i<sizeof(arr)/4;i++){
+//         printf("%d ",arr[i]);
+//     }
+//     for(i=0;i<sizeof(arr)/4;i++){
+//         if(arr[i]>0){
+//             arrp[p]=arr[i];
+//             p++;
+//         }
+//         else if(arr[i]<0){
+//             arrn[n]=arr[i];
+//             n++;
+//         }
+//         else if(arr[i]==0){
+//             arrz[z]=arr[i];
+//             z++;
+//         }
+//     }
+//     printf("\n\npositive_array : ");
+//     for(i=0;i<p;i++){
+//         printf("%d ",arrp[i]);
+//     }
+//     printf("\n");
+//     printf("negative_array : ");
+//     for(i=0;i<n;i++){
+//         printf("%d ",arrn[i]);
+//     }
+//     printf("\n");
+//     printf("zero_array : ");
+//     for(i=0;i<z;i++){
+//         printf("%d ",arrz[i]);
+//     }
+//     return 0;
+// }
+
+//Check if array is in Arthematic progression
 #include<stdio.h>
 int main(){
     int i,n;
@@ -191,40 +240,24 @@ int main(){
     for(i=0;i<n;i++){
         scanf("%d",&arr[i]);
     }
-    int arrp[n],arrn[n],arrz[n];
-    int p=0,z=0;
-    n=0;
-    printf("For given array : ");
+    n = arr[1] / arr[0];
+    int gpck = 1;
+    printf("For the given array : ");
     for(i=0;i<sizeof(arr)/4;i++){
         printf("%d ",arr[i]);
     }
-    for(i=0;i<sizeof(arr)/4;i++){
-        if(arr[i]>0){
-            arrp[p]=arr[i];
-            p++;
-        }
-        else if(arr[i]<0){
-            arrn[n]=arr[i];
-            n++;
-        }
-        else if(arr[i]==0){
-            arrz[z]=arr[i];
-            z++;
-        }
-    }
-    printf("\n\npositive_array : ");
-    for(i=0;i<p;i++){
-        printf("%d ",arrp[i]);
-    }
     printf("\n");
-    printf("negative_array : ");
-    for(i=0;i<n;i++){
-        printf("%d ",arrn[i]);
+    for(i=0;i<(sizeof(arr)/4)-1;i++){
+        if(arr[i+1]/arr[i]!=n){
+            gpck=0;
+            break;
+        }
     }
-    printf("\n");
-    printf("zero_array : ");
-    for(i=0;i<z;i++){
-        printf("%d ",arrz[i]);
+    if(gpck==1){
+        printf("elements are in GP.\n");
+    }
+    else{
+        printf("elements are not in GP.\n");
     }
     return 0;
 }
