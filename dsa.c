@@ -139,10 +139,10 @@ int main(){
         printf("The following indexs :  ");
         for(j=0;j<sizeof(arr)/4;j++){
             if(dp[i]==arr[j]){
-                printf("%d ,",j);
+                printf("[%d]",j);
             }
         }
-        printf(" are duplicates of \"%d\" in the given array.\n");
+        printf(", are duplicates of \"%d\" in the given array.\n");
     }
     return 0;
 }
