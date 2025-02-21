@@ -229,35 +229,92 @@
 //     return 0;
 // }
 
-//Check if array is in Arthematic progression
+// //Check if array is in Arthematic progression
+// #include<stdio.h>
+// int main(){
+//     int i,n;
+//     printf("Enter the size of array you want to make : ");
+//     scanf("%d",&n);
+//     int arr[n];
+//     printf("Enter the values : ");
+//     for(i=0;i<n;i++){
+//         scanf("%d",&arr[i]);
+//     }
+//     n = arr[1] / arr[0];
+//     int gpck = 1;
+//     printf("For the given array : ");
+//     for(i=0;i<sizeof(arr)/4;i++){
+//         printf("%d ",arr[i]);
+//     }
+//     printf("\n");
+//     for(i=0;i<(sizeof(arr)/4)-1;i++){
+//         if(arr[i+1]/arr[i]!=n){
+//             gpck=0;
+//             break;
+//         }
+//     }
+//     if(gpck==1){
+//         printf("elements are in GP.\n");
+//     }
+//     else{
+//         printf("elements are not in GP.\n");
+//     }
+//     return 0;
+// }
+
+//Find and store union of two arrays
 #include<stdio.h>
 int main(){
-    int i,n;
-    printf("Enter the size of array you want to make : ");
-    scanf("%d",&n);
-    int arr[n];
-    printf("Enter the values : ");
-    for(i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-    n = arr[1] / arr[0];
-    int gpck = 1;
-    printf("For the given array : ");
-    for(i=0;i<sizeof(arr)/4;i++){
-        printf("%d ",arr[i]);
-    }
-    printf("\n");
-    for(i=0;i<(sizeof(arr)/4)-1;i++){
-        if(arr[i+1]/arr[i]!=n){
-            gpck=0;
-            break;
+    int dpck=0,ind=0,i,j,n,d1[]={1,2,3,4,5},d2[]={1,2,3,6};
+    n = sizeof(d1)/sizeof(d1[0]) + sizeof(d2)/sizeof(d2[0]);
+    int d1Ud2[n];
+    for (i = 0; i < sizeof(d1)/4; i++)
+    {
+        dpck = 1;
+        for (j = 0; j < ind; j++)
+        {
+            if(d1[i]==d1Ud2[j]){
+                dpck=0;
+                break;
+            }
         }
+        if(dpck==1){
+            d1Ud2[ind]=d1[i];
+            ind++;
+        }
+        
     }
-    if(gpck==1){
-        printf("elements are in GP.\n");
+    for (i = 0; i < sizeof(d2)/4; i++)
+    {
+        for (j = 0; j < ind; j++)
+        {
+            dpck = 1;
+            if(d2[i]==d1Ud2[j]){
+                dpck=0;
+                break;
+            }
+        }
+        if(dpck==1){
+            d1Ud2[ind]=d2[i];
+            ind++;
+        }
+        
     }
-    else{
-        printf("elements are not in GP.\n");
+    printf("for set1  D1 (");
+    for ( i = 0; i < sizeof(d1)/4; i++)
+    {
+        printf("%d,",d1[i]);
+    }
+    printf(") and set D2 (");
+    for ( i = 0; i < sizeof(d2)/4; i++)
+    {
+        printf("%d,",d2[i]);
+    }
+    printf(")\nUnion of D1D2 :");
+    for ( i = 0; i < ind; i++)
+    {
+        printf("%d ",d1Ud2[i]);
     }
     return 0;
+    
 }
