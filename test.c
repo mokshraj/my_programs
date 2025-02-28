@@ -72,12 +72,27 @@
 //     return 0;
 // }
 
-#include <stdio.h>
+// #include <stdio.h>
+// int main(){
+//     int arr[4];
+//     int i;
+//     for(i=0;i<4;i++){
+//         printf("%d\n",arr[i]);
+//     }
+//     return 0;
+// }
+
+#include<stdio.h>
+int TR(int);
 int main(){
-    int arr[4];
-    int i;
-    for(i=0;i<4;i++){
-        printf("%d\n",arr[i]);
+    TR(5);
+    return 0;
+}
+int TR(int n){
+    if(n>0){
+        TR(n-1);
+        printf("%d ",n);
+        TR(n-2);
     }
     return 0;
 }
