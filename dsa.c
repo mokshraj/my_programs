@@ -262,59 +262,113 @@
 //     return 0;
 // }
 
-//Find and store union of two arrays
+// //Find and store union of two arrays
+// #include<stdio.h>
+// int main(){
+//     int dpck=0,ind=0,i,j,n,d1[]={1,2,3,4,5},d2[]={1,2,3,6};
+//     n = sizeof(d1)/sizeof(d1[0]) + sizeof(d2)/sizeof(d2[0]);
+//     int d1Ud2[n];
+//     for (i = 0; i < sizeof(d1)/4; i++)
+//     {
+//         dpck = 1;
+//         for (j = 0; j < ind; j++)
+//         {
+//             if(d1[i]==d1Ud2[j]){
+//                 dpck=0;
+//                 break;
+//             }
+//         }
+//         if(dpck==1){
+//             d1Ud2[ind]=d1[i];
+//             ind++;
+//         }
+//     }
+//     for (i = 0; i < sizeof(d2)/4; i++)
+//     {
+//         for (j = 0; j < ind; j++)
+//         {
+//             dpck = 1;
+//             if(d2[i]==d1Ud2[j]){
+//                 dpck=0;
+//                 break;
+//             }
+//         }
+//         if(dpck==1){
+//             d1Ud2[ind]=d2[i];
+//             ind++;
+//         }        
+//     }
+//     printf("for set1  D1 (");
+//     for ( i = 0; i < sizeof(d1)/4; i++)
+//     {
+//         printf("%d,",d1[i]);
+//     }
+//     printf(") and set D2 (");
+//     for ( i = 0; i < sizeof(d2)/4; i++)
+//     {
+//         printf("%d,",d2[i]);
+//     }
+//     printf(")\nUnion of D1D2 :");
+//     for ( i = 0; i < ind; i++)
+//     {
+//         printf("%d ",d1Ud2[i]);
+//     }
+//     return 0;
+// }
+
+//Count and print total palindrome numbers in 1d array
 #include<stdio.h>
+int ispalindrome(int n){
+    int dn = n,rev=0;
+    while (n!=0)
+    {
+        rev = (rev*10) + n%10;
+        n = n/10;
+    }
+    if(rev == dn){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+int pow(int n,int p){
+    if(p == 0){
+        return 1;
+    }
+    return (n*pow(n,p-1));
+}
+int isarmstrong(int n){
+    int sum = 0,p,dn=n,i;
+    for(i = 0;n!=0;i++){
+        n/=10;
+    }
+    p=i;
+    n=dn;
+    for(i=0;i<p;i++){
+        sum = sum + pow(n%10,p);
+        n/=10;
+    }
+    if(dn == sum){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
 int main(){
-    int dpck=0,ind=0,i,j,n,d1[]={1,2,3,4,5},d2[]={1,2,3,6};
-    n = sizeof(d1)/sizeof(d1[0]) + sizeof(d2)/sizeof(d2[0]);
-    int d1Ud2[n];
-    for (i = 0; i < sizeof(d1)/4; i++)
-    {
-        dpck = 1;
-        for (j = 0; j < ind; j++)
-        {
-            if(d1[i]==d1Ud2[j]){
-                dpck=0;
-                break;
-            }
+    int i,arr[] = {1,4,4941,44154151,555215,2,66,1661,153};
+    printf(" ");
+    for(i = 0;i<sizeof(arr)/4;i++){
+        if(ispalindrome(arr[i])){
+            printf("\npalindrome no. : %d at arr(%d) ",arr[i],i);
         }
-        if(dpck==1){
-            d1Ud2[ind]=d1[i];
-            ind++;
+    }
+    printf("\n");
+    for(i = 0;i<sizeof(arr)/4;i++){
+        if(isarmstrong(arr[i])){
+            printf("\narmstrong no. :  %d at arr(%d) ",arr[i],i);
         }
-        
-    }
-    for (i = 0; i < sizeof(d2)/4; i++)
-    {
-        for (j = 0; j < ind; j++)
-        {
-            dpck = 1;
-            if(d2[i]==d1Ud2[j]){
-                dpck=0;
-                break;
-            }
-        }
-        if(dpck==1){
-            d1Ud2[ind]=d2[i];
-            ind++;
-        }
-        
-    }
-    printf("for set1  D1 (");
-    for ( i = 0; i < sizeof(d1)/4; i++)
-    {
-        printf("%d,",d1[i]);
-    }
-    printf(") and set D2 (");
-    for ( i = 0; i < sizeof(d2)/4; i++)
-    {
-        printf("%d,",d2[i]);
-    }
-    printf(")\nUnion of D1D2 :");
-    for ( i = 0; i < ind; i++)
-    {
-        printf("%d ",d1Ud2[i]);
     }
     return 0;
-    
 }
