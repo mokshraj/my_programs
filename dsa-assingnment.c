@@ -378,7 +378,7 @@
 //     return 0;
 // }
 
-//Q12: Merge Two Sorted Arrays Into a Sorted Array
+//12. Merge Two Sorted Arrays Into a Sorted Array
 #include <stdio.h>
 int main() {
     int n1, n2, i, j, k;
