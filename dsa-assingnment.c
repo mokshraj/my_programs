@@ -4,7 +4,6 @@
 //     int n, i, even = 0, odd = 0;
 //     printf("Enter number of elements: ");
 //     scanf("%d", &n);
-    
 //     int arr[n];
 //     printf("Enter %d elements: ", n);
 //     for(i = 0; i < n; i++) {
