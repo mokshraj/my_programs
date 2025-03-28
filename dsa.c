@@ -36,13 +36,16 @@
 //     return 0;
 // }
 
-// //Insert an element in to the array;
+//Insert an element in to the array;
 // #include <stdio.h>
+// #include <stdlib.h>
 // int main(){
-//     int arr[5] = {1,2};
+//     int size = 2;
+//     int *arr = (int *)malloc(size*sizeof(int));
+//     arr[0] = 1;arr[1] = 2;
 //     int i = 0;
 //     printf("for given array : ");
-//     for(i=0;i < sizeof(arr)/4;i++){
+//     for(i=0;i < size;i++){
 //         printf("%d, ",arr[i]);
 //     }
 //     int insert_num;
@@ -52,12 +55,14 @@
 //     printf("Enter the position to be inserted at : ");
 //     scanf("%d",&pos);
 //     pos--;
-//     for(i = sizeof(arr)/4;i > pos;i--){
+//     size++;
+//     arr = (int *)realloc(arr,size * sizeof(int));
+//     for(i = size;i > pos;i--){
 //         arr[i] = arr[i-1];
 //     }
 //     arr[pos] = insert_num;
 //     printf("\narray after insertion : ");
-//     for(i=0;i < sizeof(arr)/4;i++){
+//     for(i=0;i < size;i++){
 //         printf("%d, ",arr[i]);
 //     }
 //     return 0;
@@ -444,6 +449,75 @@
 //     display();
 //     pop();
 //     display();
+//     return 0;
+// }
+
+// //Stack switch case:(Push - Pop, Display)
+// #include<stdio.h>
+// int top=-1,stack[5];
+// void push(){
+//     int size = sizeof(stack) / sizeof(stack[0]);
+//     if(top<size-1){
+//         top++;
+//         printf("Enter the Element : ");
+//         scanf("%d",&stack[top]);
+//     }
+//     else{
+//         printf("Stack overflow\n");
+//     }
+// }
+// void pop(){
+//     if(top == -1){
+//         printf("Stack underflow\n");
+//     }
+//     else{
+//         printf("pop element = %d\n",stack[top]);
+//         top--;
+//     }
+// }
+// //display function // follows push pop rules
+// void display(){
+//     int i;
+//     for(i=top;i>-1;i--){
+//         printf("%d\n",stack[i]);
+//     }
+// }
+// int main(){
+//     int choice;
+//     while(1)
+//     {
+//     printf("Choose option:\n1.For push function\n2.To pop\n3.To Display\n4.To exit\nChoose: ");
+//     scanf("%d",&choice);    
+//     switch (choice)
+//     {
+//     case 1:
+//         int i;
+//         printf("\n");
+//         for(i=0;i<sizeof(stack)/sizeof(stack[0]);i++)
+//         {
+//             push();
+//         }
+//         printf("\n");
+//         break;
+//     case 2:
+//         printf("\n");
+//         pop();
+//         printf("\n");
+//         break;
+//     case 3:
+//         printf("\n");
+//         display();
+//         printf("\n");
+//         break;
+//     case 4:
+//         goto exit;
+//     default:
+//         printf("\n");
+//         printf("Invalid input\n");
+//         printf("\n");
+//         break;
+//     }}
+//     exit:
 //     return 0;
 // }
 
