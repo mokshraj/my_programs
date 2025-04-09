@@ -521,61 +521,291 @@
 //     return 0;
 // }
 
-//dynamic Stack (Push - Pop, Display)
+// //dynamic Stack (Push - Pop, Display)
+// #include<stdio.h>
+// #include<stdlib.h>
+// struct stack
+// {
+//     int *stack,size,top;
+// };
+// struct stack a;
+// void stack_alloc(struct stack *arr,int size){
+//     arr->size = size;
+//     arr->stack = (int *)malloc(size*sizeof(int));
+//     arr->top = -1;
+// }
+// void stack_realloc(struct stack *arr,int size){
+//     arr->stack = (int *)realloc(arr->stack,(arr->size+size)*sizeof(int));
+//     arr->size = arr->size + size;
+// }
+// void push(struct stack *arr){
+//     if(arr->top < (arr->size)-1){
+//         arr->top++;
+//         printf("Enter the Element : ");
+//         scanf("%d",&arr->stack[arr->top]);
+//     }
+//     else{
+//         printf("Stack overflow\n");
+//     }
+// }
+// void pop(struct stack *arr){
+//     if(arr->top == -1){
+//         printf("Stack underflow\n");
+//     }
+//     else{
+//         printf("pop element = %d\n",arr->stack[arr->top]);
+//         arr->top--;
+//     }
+// }
+// void display(struct stack *arr){
+//     int i;
+//     for(i=arr->top;i>=0;i--){
+//         printf("%d\n",*(arr->stack+i));
+//     }
+// }
+// int main(){
+//     int i;
+//     stack_alloc(&a,5);
+//     while(a.top!=a.size-1){
+//         push(&a);
+//     }
+//     push(&a);
+//     display(&a);
+//     stack_realloc(&a,1);
+//     while(a.top!=a.size-1){
+//         push(&a);
+//     }
+//     push(&a);
+//     display(&a);
+//     return 0;
+// }
+
+// //max in array static
+// #include<stdio.h>
+// int main(){
+//     int i,n,max;
+//     printf("Enter the size of array :");
+//     scanf("%d",&n);
+//     int arr[n];
+//     for(i=0;i<n;i++){
+//         printf("Enter element %d :",i+1);
+//         scanf("%d",&arr[i]);
+//     }
+//     max = arr[0];
+//     for(i=0;i<n;i++){
+//         if(max<arr[i]){
+//             max = arr[i];
+//         }
+//     }
+//     printf("The max is :%d",max);
+//     return 0;
+// }
+
+// //min in array static
+// #include<stdio.h>
+// int main(){
+//     int i,n,min;
+//     printf("Enter the size of array :");
+//     scanf("%d",&n);
+//     int arr[n];
+//     for(i=0;i<n;i++){
+//         printf("Enter element %d :",i+1);
+//         scanf("%d",&arr[i]);
+//     }
+//     min = arr[0];
+//     for(i=0;i<n;i++){
+//         if(min>arr[i]){
+//             min = arr[i];
+//         }
+//     }
+//     printf("The min is :%d",min);
+//     return 0;
+// }
+
+// //swap min max of array
+// #include<stdio.h>
+// int main(){
+//     int i,n,min,max,indmin,indmax;
+//     printf("Enter the size of array :");
+//     scanf("%d",&n);
+//     int arr[n];
+//     for(i=0;i<n;i++){
+//         printf("Enter element %d :",i+1);
+//         scanf("%d",&arr[i]);
+//     }
+//     min = arr[0];
+//     indmin = 0;
+//     indmax = 0;
+//     max = arr[0];
+//     for(i=0;i<n;i++){
+//         if(min>arr[i]){
+//             min = arr[i];
+//             indmin = i;
+//         }
+//         else if(max<arr[i]){
+//             max=arr[i];
+//             indmax = i;
+//         }
+//     }
+//     printf("Array before swap : ");
+//     for(i = 0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+//     printf("\nArray after swap : ");
+//     arr[indmax]=min;
+//     arr[indmin]=max;
+//     for(i = 0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+//     return 0;
+// }
+
+// //max in array dynamic
+// #include<stdio.h>
+// #include<stdlib.h>
+// int main(){
+//     int i,n,max;
+//     printf("Enter the size of array :");
+//     scanf("%d",&n);
+//     int *arr = (int *)malloc(n*sizeof(int));
+//     for(i=0;i<n;i++){
+//         printf("Enter element %d :",i+1);
+//         scanf("%d",(arr+i));
+//     }
+//     max = arr[0];
+//     for(i=0;i<n;i++){
+//         if(max<*(arr+i)){
+//             max = *(arr+i);
+//         }
+//     }
+//     printf("The max is :%d",max);
+//     return 0;
+// }
+
+// //min in array dynamic
+// #include<stdio.h>
+// #include<stdlib.h>
+// int main(){
+//     int i,n,min;
+//     printf("Enter the size of array :");
+//     scanf("%d",&n);
+//     int *arr = (int *)malloc(n*sizeof(int));
+//     for(i=0;i<n;i++){
+//         printf("Enter element %d :",i+1);
+//         scanf("%d",(arr+i));
+//     }
+//     min = *arr;
+//     for(i=0;i<n;i++){
+//         if(min>*(arr+i)){
+//             min = *(arr+i);
+//         }
+//     }
+//     printf("The min is :%d",min);
+//     return 0;
+// }
+
+// //swap min max of array dynamic
+// #include<stdio.h>
+// #include<stdlib.h>
+// int main(){
+//     int i,n,min,max,indmin=0,indmax=0;
+//     printf("Enter the size of array :");
+//     scanf("%d",&n);
+//     int *arr = (int *)malloc(n*sizeof(int));
+//     for(i=0;i<n;i++){
+//         printf("Enter element %d :",i+1);
+//         scanf("%d",(arr+i));
+//     }
+//     min = *arr;
+//     max = *arr;
+//     for(i=0;i<n;i++){
+//         if(min>*(arr+i)){
+//             min = *(arr+i);
+//             indmin=i;
+//         }
+//         else if(max<*(arr+i)){
+//             max=*(arr+i);
+//             indmax=i;
+//         }
+//     }
+//     printf("Array before swap : ");
+//     for(i = 0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+//     printf("\nArray after swap : ");
+//     arr[indmax]=min;
+//     arr[indmin]=max;
+//     for(i = 0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+//     return 0;
+// }
+
+// //check wheather a string is palindrome using string.h
+// #include<stdio.h>
+// #include<string.h>
+// int main(){
+//     char str[100];
+//     printf("Enter a string : ");
+//     fgets(str,100,stdin);
+//     int i,pal=1;
+//     for(i=0;i<strlen(str)-1;i++){
+//         if(str[i]!=str[strlen(str)-i-2]){
+//             pal = 0;
+//             break;
+//         }
+//     }
+//     if(pal){
+//         printf("Entered string is a palindrome");
+//     }
+//     else{
+//         printf("Entered string is not a palindrome");
+//     }
+//     return 0;
+// }
+
+// //check wheather a string is palindrome not using string.h
+// #include<stdio.h>
+// int main(){
+//     char str[100];
+//     printf("Enter a string : ");
+//     fgets(str,100,stdin);
+//     int i=0,pal=1,len=0;
+//     while(str[len]!='\0'){
+//         len++;
+//     }
+//     for(i=0;i<len-1;i++){
+//         if(str[i]!=str[len-i-2]){
+//             pal = 0;
+//             break;
+//         }
+//     }
+//     if(pal){
+//         printf("Entered string is a palindrome");
+//     }
+//     else{
+//         printf("Entered string is not a palindrome");
+//     }
+//     return 0;
+// }
+
+//sort string
 #include<stdio.h>
-#include<stdlib.h>
-struct stack
-{
-    int *stack,size,top;
-};
-struct stack a;
-void stack_alloc(struct stack *arr,int size){
-    arr->size = size;
-    arr->stack = (int *)malloc(size*sizeof(int));
-    arr->top = -1;
-}
-void stack_realloc(struct stack *arr,int size){
-    arr->stack = (int *)realloc(arr->stack,(arr->size+size)*sizeof(int));
-    arr->size = arr->size + size;
-}
-void push(struct stack *arr){
-    if(arr->top < (arr->size)-1){
-        arr->top++;
-        printf("Enter the Element : ");
-        scanf("%d",&arr->stack[arr->top]);
-    }
-    else{
-        printf("Stack overflow\n");
-    }
-}
-void pop(struct stack *arr){
-    if(arr->top == -1){
-        printf("Stack underflow\n");
-    }
-    else{
-        printf("pop element = %d\n",arr->stack[arr->top]);
-        arr->top--;
-    }
-}
-void display(struct stack *arr){
-    int i;
-    for(i=arr->top;i>=0;i--){
-        printf("%d\n",*(arr->stack+i));
-    }
-}
+#include<string.h>
 int main(){
-    int i;
-    stack_alloc(&a,5);
-    while(a.top!=a.size-1){
-        push(&a);
+    char str[100];
+    printf("Enter a string : ");
+    fgets(str,100,stdin);
+    int i,j=0,len = strlen(str);
+    while(j!=len-2){
+    for(i = 0;i<len-2;i++){
+        if(str[i]>str[i+1]){
+            str[i] = str[i] + str[i+1];
+            str[i+1] = str[i] - str[i+1];
+            str[i] = str[i] - str[i+1];
+        }
     }
-    push(&a);
-    display(&a);
-    stack_realloc(&a,1);
-    while(a.top!=a.size-1){
-        push(&a);
+    j++;
     }
-    push(&a);
-    display(&a);
-    return 0;
+    printf("%s",str);
 }
