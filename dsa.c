@@ -789,23 +789,71 @@
 //     return 0;
 // }
 
-//sort string
+// //sort string
+// #include<stdio.h>
+// #include<string.h>
+// int main(){
+//     char str[100];
+//     printf("Enter a string : ");
+//     fgets(str,100,stdin);
+//     int i,j=0,len = strlen(str);
+//     while(j!=len-2){
+//     for(i = 0;i<len-2;i++){
+//         if(str[i]>str[i+1]){
+//             str[i] = str[i] + str[i+1];
+//             str[i+1] = str[i] - str[i+1];
+//             str[i] = str[i] - str[i+1];
+//         }
+//     }
+//     j++;
+//     }
+//     printf("%s",str);
+//     return 0;
+// }
+
+// //write a c program to reverse a string
+// #include <stdio.h>
+// #include <string.h>
+// int main(){
+//     char str[100];
+//     printf("Enter a string to reverse : ");
+//     fgets(str,100,stdin);
+//     char revstr[100];
+//     int i;
+//     for(i=strlen(str)-1;i>-1;i--){
+//         revstr[(strlen(str)-1)-i] = str[i];
+//     }
+//     printf("%s",revstr);
+//     return 0;
+// }
+
+//write a c program input a string and find a substring "deemed" in it
 #include<stdio.h>
 #include<string.h>
 int main(){
     char str[100];
-    printf("Enter a string : ");
     fgets(str,100,stdin);
-    int i,j=0,len = strlen(str);
-    while(j!=len-2){
-    for(i = 0;i<len-2;i++){
-        if(str[i]>str[i+1]){
-            str[i] = str[i] + str[i+1];
-            str[i+1] = str[i] - str[i+1];
-            str[i] = str[i] - str[i+1];
+    char temp[7];
+    temp[6] = '\0';
+    char temp2[2];
+    temp2[1]='\0';
+    if(strlen(str)<6){
+        printf("\nInvalid input");
+        return 0;
+    }
+    int i,j,found=0;
+    for(i =0;i<strlen(str)-7;i++){
+        for(j=0;j<7;j++){
+            temp2[0]= str[i+j];
+            strcat(temp,temp2);
+        }
+        if(strcmp(temp,"deemed")==0){
+            found = 1;
+            break;
         }
     }
-    j++;
+    if(!found){
+        printf("found deemed at index :%d",i);
     }
-    printf("%s",str);
+    return 0;
 }
