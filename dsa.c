@@ -827,33 +827,76 @@
 //     return 0;
 // }
 
-//write a c program input a string and find a substring "deemed" in it
+// //write a c program input a string and find a substring "deemed" in it
+// #include<stdio.h>
+// #include<string.h>
+// int main(){
+//     char str[100];
+//     fgets(str,100,stdin);
+//     char temp[10];
+//     temp[6] = '\0';
+//     char temp2[2];
+//     temp2[1]='\0';
+//     if(strlen(str)<6){
+//         printf("\nInvalid input");
+//         return 0;
+//     }
+//     int i,j,found=0;
+//     for(i =0;i<strlen(str)-7;i++){
+//         for(j=0;j<7;j++){
+//             temp2[0]= str[i+j];
+//             strcat(temp,temp2);
+//         }
+//         if(strcmp(temp,"deemed")==0){
+//             found = 1;
+//             break;
+//         }
+//     }
+//     if(!found){
+//         printf("found deemed at index :%d",i);
+//     }
+//     return 0;
+// }
+
+// //pointer test
+// #include<stdio.h>
+// int main(){
+//     int a = 5;
+//     int *ap = &a;
+//     int **app = &ap;
+//     printf("a = %d\n",a);
+//     printf("ap = %u\n",ap);
+//     printf("*ap = %d\n",*ap);
+//     printf("app = %u\n",app);
+//     printf("*app = %u\n",*app);
+//     printf("**app = %d\n",**app);
+//     return 0;
+// }
+
+//check wheather a string is palindrome not using string.h
 #include<stdio.h>
-#include<string.h>
-int main(){
-    char str[100];
-    fgets(str,100,stdin);
-    char temp[7];
-    temp[6] = '\0';
-    char temp2[2];
-    temp2[1]='\0';
-    if(strlen(str)<6){
-        printf("\nInvalid input");
-        return 0;
+int palindromecheck(char str[]){
+    int i=0,pal=1,len=0;
+    while(str[len]!='\0'){
+        len++;
     }
-    int i,j,found=0;
-    for(i =0;i<strlen(str)-7;i++){
-        for(j=0;j<7;j++){
-            temp2[0]= str[i+j];
-            strcat(temp,temp2);
-        }
-        if(strcmp(temp,"deemed")==0){
-            found = 1;
+    for(i=0;i<len-1;i++){
+        if(str[i]!=str[len-i-2]){
+            pal = 0;
             break;
         }
     }
-    if(!found){
-        printf("found deemed at index :%d",i);
+    return pal;
+}
+int main(){
+    char str[100];
+    printf("Enter a string : ");
+    fgets(str,100,stdin);
+    if(palindromecheck(str)){
+        printf("Entered string is a palindrome");
+    }
+    else{
+        printf("Entered string is not a palindrome");
     }
     return 0;
 }
