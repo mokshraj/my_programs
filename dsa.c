@@ -873,30 +873,247 @@
 //     return 0;
 // }
 
-//check wheather a string is palindrome not using string.h
-#include<stdio.h>
-int palindromecheck(char str[]){
-    int i=0,pal=1,len=0;
-    while(str[len]!='\0'){
-        len++;
+// //check wheather a string is palindrome not using string.h
+// #include<stdio.h>
+// int palindromecheck(char str[]){
+//     int i=0,pal=1,len=0;
+//     while(str[len]!='\0'){
+//         len++;
+//     }
+//     for(i=0;i<len-1;i++){
+//         if(str[i]!=str[len-i-2]){
+//             pal = 0;
+//             break;
+//         }
+//     }
+//     return pal;
+// }
+// int main(){
+//     char str[100];
+//     printf("Enter a string : ");
+//     fgets(str,100,stdin);
+//     if(palindromecheck(str)){
+//         printf("Entered string is a palindrome");
+//     }
+//     else{
+//         printf("Entered string is not a palindrome");
+//     }
+//     return 0;
+// }
+
+// //store the record of one student and print
+// #include <stdio.h>
+// struct student{
+//     int rollno;
+//     char name[100];
+//     float marks;
+// };
+// int main(){
+//     struct student rec;
+//     printf("Enter name : ");
+//     fgets(rec.name,100,stdin);
+//     printf("Enter marks : ");
+//     scanf("%f",&rec.marks);
+//     printf("Enter roll no. : ");
+//     scanf("%d",&rec.rollno);
+//     printf("\n\nRecord entered : ");
+//     printf("\nRoll no. : %d\n",rec.rollno);
+//     printf("Name : %s",rec.name);
+//     printf("Marks : %.2f\n",rec.marks);
+//     return 0;
+// }
+
+// //srore the record of n students and print
+// #include <stdio.h>
+// #include <string.h>
+// struct student{
+//     int rollno;
+//     char name[101];
+//     float marks;
+// };
+// int main(){
+//     int n,i;
+//     printf("Enter the number of records you want to add : ");
+//     scanf("%d",&n);
+//     getchar();
+//     struct student rec[n];
+//     for(i=0;i<n;i++){
+//         printf("\nEnter record %d\n\n",i+1);
+//         printf("Enter roll no. : ");
+//         scanf("%d",&rec[i].rollno);
+//         getchar();
+//         printf("Enter name : ");
+//         fgets(rec[i].name,100,stdin);
+//         rec[i].name[strlen(rec[i].name)-1] = '\0';
+//         printf("Enter marks : ");
+//         scanf("%f",&rec[i].marks);
+//     }
+//     for(i=0;i<n;i++){
+//         printf("\n\nRecord %d : ",i);
+//         printf("\nName : %s\n",rec[i].name);
+//         printf("Roll no. : %d\n",rec[i].rollno);
+//         printf("Marks : %.2f\n",rec[i].marks);
+//     }
+//     return 0;
+// }
+
+// //store the record of n students and print the record of students whoose name is “Bhoomi”
+// #include <stdio.h>
+// #include <string.h>
+// struct student{
+//     int rollno;
+//     char name[101];
+//     float marks;
+// };
+// int main(){
+//     int n,i;
+//     printf("Enter the number of records you want to add : ");
+//     scanf("%d",&n);
+//     getchar();
+//     struct student rec[n];
+//     for(i=0;i<n;i++){
+//         printf("\nEnter record %d\n\n",i+1);
+//         printf("Enter roll no. : ");
+//         scanf("%d",&rec[i].rollno);
+//         getchar();
+//         printf("Enter name : ");
+//         fgets(rec[i].name,100,stdin);
+//         rec[i].name[strlen(rec[i].name)-1] = '\0';
+//         printf("Enter marks : ");
+//         scanf("%f",&rec[i].marks);
+//     }
+//     for(i=0;i<n;i++){
+//         if(strcmp(rec[i].name,"Bhoomi")==0){
+//             printf("\nName : %s\n",rec[i].name);
+//             printf("Roll no. : %d\n",rec[i].rollno);
+//             printf("Marks : %.2f\n",rec[i].marks);
+//         }
+//     }
+//     return 0;
+// }
+
+// //store the record of n students and print the record of students whoose name starts with character ‘A’
+// #include <stdio.h>
+// #include <string.h>
+// struct student{
+//     int rollno;
+//     char name[101];
+//     float marks;
+// };
+// int main(){
+//     int n,i;
+//     printf("Enter the number of records you want to add : ");
+//     scanf("%d",&n);
+//     getchar();
+//     struct student rec[n];
+//     for(i=0;i<n;i++){
+//         printf("\nEnter record %d\n\n",i+1);
+//         printf("Enter roll no. : ");
+//         scanf("%d",&rec[i].rollno);
+//         getchar();
+//         printf("Enter name : ");
+//         fgets(rec[i].name,100,stdin);
+//         rec[i].name[strlen(rec[i].name)-1] = '\0';
+//         printf("Enter marks : ");
+//         scanf("%f",&rec[i].marks);
+//         getchar();
+//     }
+//     for(i=0;i<n;i++){
+//         if(strncmp(rec[i].name,"A",1)==0){
+//             printf("\n\nOn Record %d",i+1);
+//             printf("\nName : %s\n",rec[i].name);
+//             printf("Roll no. : %d\n",rec[i].rollno);
+//             printf("Marks : %.2f\n",rec[i].marks);
+//         }
+//     }
+//     return 0;
+// }
+
+// //store the record of n students and print the record of students whoose marks is maximum
+// #include <stdio.h>
+// #include <string.h>
+// struct student{
+//     int rollno;
+//     char name[101];
+//     float marks;
+// };
+// int main(){
+//     int n,i,max=0;
+//     printf("Enter the number of records you want to add : ");
+//     scanf("%d",&n);
+//     getchar();
+//     struct student rec[n];
+//     for(i=0;i<n;i++){
+//         printf("\nEnter record %d\n\n",i+1);
+//         printf("Enter roll no. : ");
+//         scanf("%d",&rec[i].rollno);
+//         getchar();
+//         printf("Enter name : ");
+//         fgets(rec[i].name,100,stdin);
+//         rec[i].name[strlen(rec[i].name)-1] = '\0';
+//         printf("Enter marks : ");
+//         scanf("%f",&rec[i].marks);
+//         getchar();
+//     }
+//     for(i=0;i<n-1;i++)
+//     {
+//         if(rec[i].marks>rec[max].marks)
+//             max=i;
+//     }
+//     printf("\n\nRecord %d : ",i+1);
+//     printf("\nName : %s\n",rec[i].name);
+//     printf("Roll no. : %d\n",rec[i].rollno);
+//     printf("Marks : %.2f\n",rec[i].marks);
+//     return 0;
+// }
+
+//store the record of n students and print the record of students in ascending order of marks.
+#include <stdio.h>
+#include <string.h>
+struct student{
+    int rollno;
+    char name[101];
+    float marks;
+};
+int main(){
+    int n,i;
+    printf("Enter the number of records you want to add : ");
+    scanf("%d",&n);
+    getchar();
+    struct student rec[n];
+    for(i=0;i<n;i++){
+        printf("\nEnter record %d\n\n",i+1);
+        printf("Enter roll no. : ");
+        scanf("%d",&rec[i].rollno);
+        getchar();
+        printf("Enter name : ");
+        fgets(rec[i].name,100,stdin);
+        rec[i].name[strlen(rec[i].name)-1] = '\0';
+        printf("Enter marks : ");
+        scanf("%f",&rec[i].marks);
+        getchar();
     }
-    for(i=0;i<len-1;i++){
-        if(str[i]!=str[len-i-2]){
-            pal = 0;
-            break;
+    int j,arr[n];
+    for(i=0;i<n;i++){
+        arr[i]=i;
+    }
+    for(j=0;j<n/2+1;j++){
+    for(i=0;i<n-1;i++){
+        if(rec[arr[i]].marks > rec[arr[i+1]].marks){
+            arr[i] = arr[i] + arr[i+1];
+            arr[i+1] = arr[i]-arr[i+1];
+            arr[i] = arr[i]-arr[i+1];
         }
     }
-    return pal;
 }
-int main(){
-    char str[100];
-    printf("Enter a string : ");
-    fgets(str,100,stdin);
-    if(palindromecheck(str)){
-        printf("Entered string is a palindrome");
+    for(i=0;i<n;i++){
+        printf("\n%d",arr[i]);
     }
-    else{
-        printf("Entered string is not a palindrome");
+    for(i=0;i<n;i++){
+        printf("\n\nRecord %d : ",arr[i]+1);
+        printf("\nName : %s\n",rec[arr[i]].name);
+        printf("Roll no. : %d\n",rec[arr[i]].rollno);
+        printf("Marks : %.2f\n",rec[arr[i]].marks);
     }
     return 0;
 }
