@@ -1491,12 +1491,32 @@
 //     return 0;
 // }
 
-//Write a text file using fputc() function
+// //Write a text file using fputc() function
+// #include <stdio.h>
+// FILE *f;
+// int main(){
+//     printf("Enter the file contents : (use ctrl + z for windows ctrl + d for linux to stop)\n");
+//     f = fopen("file.txt","w");
+//     char ch = getchar();
+//     while(ch != EOF){
+//         fputc(ch,f);
+//         ch = getchar();
+//     }
+//     fclose(f);
+//     f = fopen("file.txt","r");
+//     ch = fgetc(f);
+//     printf("\nFile contents : \n");
+//     while(ch != EOF){
+//         printf("%c",ch);
+//         ch = fgetc(f);
+//     }
+//     fclose(f);
+//     return 0;
+// }
+
+//command line arguments
 #include <stdio.h>
-FILE *f;
-int main(){
-    f = fopen("file.txt","w");
-    fputc('s',f);
-    fclose(f);
-    return 0;
+#include <stdlib.h>
+int main(int argc, char *argv[]){
+    printf("Sum = %d",atoi(argv[1])+atoi(argv[2]));
 }
