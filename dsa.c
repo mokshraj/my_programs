@@ -1514,7 +1514,23 @@
 //     return 0;
 // }
 
-//command line arguments
+// //command line arguments
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(int argc, char *argv[]){
+//     int i,sum =0;
+//     if(argc<2){
+//         printf("too few argumnets");
+//     }
+//     else{
+//         for(i=1;i<argc;i++){
+//             sum = sum + atoi(argv[i]);
+//         }
+//         printf("Sum = %d",sum);
+//     }
+// }
+
+//store and print the record of a student using command line arguments
 #include <stdio.h>
 #include <stdlib.h>
 int main(int argc, char *argv[]){
@@ -1523,9 +1539,8 @@ int main(int argc, char *argv[]){
         printf("too few argumnets");
     }
     else{
-        for(i=1;i<argc;i++){
-            sum = sum + atoi(argv[i]);
-        }
-        printf("Sum = %d",sum);
+        printf("Name   : %s\n",argv[1]);
+        printf("Rollno : %s\n",argv[2]);
+        printf("Marks  : %s\n",argv[3]);
     }
 }
