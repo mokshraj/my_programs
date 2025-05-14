@@ -1067,53 +1067,436 @@
 //     return 0;
 // }
 
-//store the record of n students and print the record of students in ascending order of marks.
+// //store the record of n students and print the record of students in ascending order of marks.
+// #include <stdio.h>
+// #include <string.h>
+// struct student{
+//     int rollno;
+//     char name[101];
+//     float marks;
+// };
+// int main(){
+//     int n,i;
+//     printf("Enter the number of records you want to add : ");
+//     scanf("%d",&n);
+//     getchar();
+//     struct student rec[n];
+//     for(i=0;i<n;i++){
+//         printf("\nEnter record %d\n\n",i+1);
+//         printf("Enter roll no. : ");
+//         scanf("%d",&rec[i].rollno);
+//         getchar();
+//         printf("Enter name : ");
+//         fgets(rec[i].name,100,stdin);
+//         rec[i].name[strlen(rec[i].name)-1] = '\0';
+//         printf("Enter marks : ");
+//         scanf("%f",&rec[i].marks);
+//         getchar();
+//     }
+//     int j,arr[n];
+//     for(i=0;i<n;i++){
+//         arr[i]=i;
+//     }
+//     for(j=0;j<n/2+1;j++){
+//     for(i=0;i<n-1;i++){
+//         if(rec[arr[i]].marks > rec[arr[i+1]].marks){
+//             arr[i] = arr[i] + arr[i+1];
+//             arr[i+1] = arr[i]-arr[i+1];
+//             arr[i] = arr[i]-arr[i+1];
+//         }
+//     }
+// }
+//     for(i=0;i<n;i++){
+//         printf("\n%d",arr[i]);
+//     }
+//     for(i=0;i<n;i++){
+//         printf("\n\nRecord %d : ",arr[i]+1);
+//         printf("\nName : %s\n",rec[arr[i]].name);
+//         printf("Roll no. : %d\n",rec[arr[i]].rollno);
+//         printf("Marks : %.2f\n",rec[arr[i]].marks);
+//     }
+//     return 0;
+// }
+
+// // //nested structures store and print detailds of a student
+// #include<stdio.h>
+// int strlength(char str[]){
+//     int i=0;
+//     while(str[i]!='\0'){
+//         i++;
+//     }
+//     return i;
+// }
+// typedef struct{
+//     float eng,math,cs,ds;
+// }marks;
+// typedef struct{
+//     char name[101];
+//     int rollno;
+//     marks marks;
+// }student;
+
+// int main(){
+//     int n=1;
+//     student st[1];
+//     int i;
+//     for(i=0;i<n;i++){
+//         printf("Enter Record %d: \n",i+1);
+//         printf("Enter your name : ");
+//         fgets(st[i].name,100,stdin);
+//         st[i].name[strlength(st[i].name)-1]='\0';
+//         printf("Enter your rollno : ");
+//         scanf("%d",&st[i].rollno);
+//         printf("Enter your marks for english : ");
+//         scanf("%f",&st[i].marks.eng);
+//         printf("Enter your marks for D.S : ");
+//         scanf("%f",&st[i].marks.ds);
+//         printf("Enter your marks for C.S : ");
+//         scanf("%f",&st[i].marks.cs);
+//         printf("Enter your marks for maths : ");
+//         scanf("%f",&st[i].marks.math);
+//         getchar();
+//         printf("\n");
+//     }
+//     for(i=0;i<n;i++){
+//         printf("Record %d\n",i+1);
+//         printf("Name : %s\n",st[i].name);
+//         printf("rollno : ");
+//         printf("%d\n",st[i].rollno);
+//         printf("marks for english : ");
+//         printf("%f\n",st[i].marks.eng);
+//         printf("marks for D.S : ");
+//         printf("%f\n",st[i].marks.ds);
+//         printf("marks for C.S : ");
+//         printf("%f\n",st[i].marks.cs);
+//         printf("marks for maths : ");
+//         printf("%f\n",st[i].marks.math);
+//     }
+//     return 0;
+// }
+
+// //nested structures store and print detailds of n students
+// #include<stdio.h>
+// #include<stdlib.h>
+// int strlength(char str[]){
+//     int i=0;
+//     while(str[i]!='\0'){
+//         i++;
+//     }
+//     return i;
+// }
+// typedef struct{
+//     float eng,math,cs,ds;
+// }marks;
+// typedef struct{
+//     char name[101];
+//     int rollno;
+//     marks marks;
+// }student;
+// int main(){
+//     printf("Enter the No. of records you want : ");
+//     int n;
+//     scanf("%d",&n);
+//     getchar();
+//     student *st = (student *)malloc(n*sizeof(student));
+//     int i;
+//     for(i=0;i<n;i++){
+//         printf("Enter Record %d: \n",i+1);
+//         printf("Enter your name : ");
+//         fgets(st[i].name,100,stdin);
+//         st[i].name[strlength(st[i].name)-1];
+//         printf("Enter your rollno : ");
+//         scanf("%d",&st[i].rollno);
+//         printf("Enter your marks for english : ");
+//         scanf("%f",&st[i].marks.eng);
+//         printf("Enter your marks for D.S : ");
+//         scanf("%f",&st[i].marks.ds);
+//         printf("Enter your marks for C.S : ");
+//         scanf("%f",&st[i].marks.cs);
+//         printf("Enter your marks for maths : ");
+//         scanf("%f",&st[i].marks.math);
+//         getchar();
+//         printf("\n");
+//     }
+//     for(i=0;i<n;i++){
+//         printf("Record %d\n",i+1);
+//         printf("Name : %s\n",st[i].name);
+//         printf("rollno : ");
+//         printf("%d\n",st[i].rollno);
+//         printf("marks for english : ");
+//         printf("%f\n",st[i].marks.eng);
+//         printf("marks for D.S : ");
+//         printf("%f\n",st[i].marks.ds);
+//         printf("marks for C.S : ");
+//         printf("%f\n",st[i].marks.cs);
+//         printf("marks for maths : ");
+//         printf("%f\n",st[i].marks.math);
+//     }
+//     return 0;
+// }
+
+// //WAP to manage employee records using nested structures with data members: employee id, name.
+// //A nested structure contact containing mobile no., email id, city, state, PIN code. Store the record of an employee and print.
+// //time 10;50 - 11:07
+// #include <stdio.h>
+// int strlength(char str[]){
+//     int i=0;
+//     while(str[i]!='\0'){
+//         i++;
+//     }
+//     return i;
+// }
+// typedef struct{
+//     int mobno;
+//     char email[151];
+//     char state[51];
+//     int pincode;
+// }contacts;
+// typedef struct{
+//     char name[101];
+//     int emp_id;
+//     contacts cont;
+// }employee;
+// int main(){
+//     employee a;
+//     printf("Enter employee name :");
+//     fgets(a.name,100,stdin);
+//     a.name[strlength(a.name)-1] = '\0';
+//     printf("Enter Employee Id : ");
+//     scanf("%d",&a.emp_id);
+//     printf("Enter mobile no. : ");
+//     scanf("%d",&a.cont.mobno);
+//     getchar();
+//     printf("Enter email id :");
+//     fgets(a.cont.email,150,stdin);
+//     a.cont.email[strlength(a.cont.email)-1]= '\0';
+//     printf("Enter state :");
+//     fgets(a.cont.state,50,stdin);
+//     a.cont.state[strlength(a.cont.state)-1]= '\0';
+//     printf("Enter pincode : ");
+//     scanf("%d",&a.cont.pincode);
+//     getchar();
+
+//     printf("\nemployee name : %s\n",a.name);
+//     printf("Enter Employee Id : ");
+//     printf("%d\n",a.emp_id);
+//     printf("Enter mobile no. : ");
+//     printf("%d\n",a.cont.mobno);
+//     printf("Enter email id : %s\n",a.cont.email);
+//     printf("Enter state : %s\n",a.cont.state);
+//     printf("Enter pincode : ");
+//     printf("%d",a.cont.pincode);
+//     return 0;
+// }
+
+// //WAP to manage employee records using nested structures with data members: employee id, name.
+// //A nested structure contact containing mobile no., email id, city, state, PIN code. Store the record of n employees and print them.
+// //time 11:14-11:20
+// #include <stdio.h>
+// #include <stdlib.h>
+// int strlength(char str[]){
+//     int i=0;
+//     while(str[i]!='\0'){
+//         i++;
+//     }
+//     return i;
+// }
+// typedef struct{
+//     int mobno;
+//     char email[151];
+//     char state[51];
+//     int pincode;
+// }contacts;
+// typedef struct{
+//     char name[101];
+//     int emp_id;
+//     contacts cont;
+// }employee;
+// int main(){
+//     int n,i;
+//     printf("enter the no. of you want :");
+//     scanf("%d",&n);
+//     getchar();
+//     employee *a = (employee *)malloc(n*sizeof(employee));
+//     for(i=0;i<n;i++){
+//     printf("\nEnter record %d :\n",i+1);
+//     printf("Enter employee name :");
+//     fgets(a[i].name,100,stdin);
+//     a[i].name[strlength(a[i].name)-1] = '\0';
+//     printf("Enter Employee Id : ");
+//     scanf("%d",&a[i].emp_id);
+//     printf("Enter mobile no. : ");
+//     scanf("%d",&a[i].cont.mobno);
+//     getchar();
+//     printf("Enter email id :");
+//     fgets(a[i].cont.email,150,stdin);
+//     a[i].cont.email[strlength(a[i].cont.email)-1]= '\0';
+//     printf("Enter state :");
+//     fgets(a[i].cont.state,50,stdin);
+//     a[i].cont.state[strlength(a[i].cont.state)-1]= '\0';
+//     printf("Enter pincode : ");
+//     scanf("%d",&a[i].cont.pincode);
+//     getchar();
+//     }
+//     for(i=0;i<n;i++){
+//     printf("\nRecord %d :\n",i+1);
+//     printf("\nemployee name : %s\n",a[i].name);
+//     printf("Enter Employee Id : ");
+//     printf("%d\n",a[i].emp_id);
+//     printf("Enter mobile no. : ");
+//     printf("%d\n",a[i].cont.mobno);
+//     printf("Enter email id : %s\n",a[i].cont.email);
+//     printf("Enter state : %s\n",a[i].cont.state);
+//     printf("Enter pincode : ");
+//     printf("%d\n",a[i].cont.pincode);
+//     }
+//     return 0;
+// }
+
+// // //WAP to manage employee records using nested structures with data members: employee id, name. 
+// // //A nested structure contact containing mobile no., email id, city, state, PIN code. Store the record of n employees and print them using function
+// // //time 11:14-11:20
+// #include <stdio.h>
+// #include <stdlib.h>
+// int strlength(char str[]){
+//     int i=0;
+//     while(str[i]!='\0'){
+//         i++;
+//     }
+//     return i;
+// }
+// typedef struct{
+//     int mobno;
+//     char email[151];
+//     char state[51];
+//     int pincode;
+// }contacts;
+// typedef struct{
+//     char name[101];
+//     int emp_id;
+//     contacts cont;
+// }employee;
+// void display(employee a){
+//     printf("\nemployee name : %s\n",a.name);
+//     printf("Enter Employee Id : ");
+//     printf("%d\n",a.emp_id);
+//     printf("Enter mobile no. : ");
+//     printf("%d\n",a.cont.mobno);
+//     printf("Enter email id : %s\n",a.cont.email);
+//     printf("Enter state : %s\n",a.cont.state);
+//     printf("Enter pincode : ");
+//     printf("%d\n",a.cont.pincode);
+// }
+// int main(){
+//     int n,i;
+//     printf("enter the no. of you want :");
+//     scanf("%d",&n);
+//     getchar();
+//     employee *a = (employee *)malloc(n*sizeof(employee));
+//     for(i=0;i<n;i++){
+//     printf("\nEnter record %d :\n",i+1);
+//     printf("Enter employee name :");
+//     fgets(a[i].name,100,stdin);
+//     a[i].name[strlength(a[i].name)-1] = '\0';
+//     printf("Enter Employee Id : ");
+//     scanf("%d",&a[i].emp_id);
+//     printf("Enter mobile no. : ");
+//     scanf("%d",&a[i].cont.mobno);
+//     getchar();
+//     printf("Enter email id :");
+//     fgets(a[i].cont.email,150,stdin);
+//     a[i].cont.email[strlength(a[i].cont.email)-1]= '\0';
+//     printf("Enter state :");
+//     fgets(a[i].cont.state,50,stdin);
+//     a[i].cont.state[strlength(a[i].cont.state)-1]= '\0';
+//     printf("Enter pincode : ");
+//     scanf("%d",&a[i].cont.pincode);
+//     getchar();
+//     }
+//     for(i=0;i<n;i++){
+//     printf("\nRecord %d :\n",i+1);
+//     display(a[i]);
+//     }
+//     return 0;
+// }
+
+// // //WAP to manage employee records using nested structures with data members: employee id, name. 
+// // //A nested structure contact containing mobile no., email id, city, state, PIN code. Store the record of n employees using pointer and print them using function (input array of structures).
+// // //time 10:40-10:49
+// #include <stdio.h>
+// #include <stdlib.h>
+// int strlength(char str[]){
+//     int i=0;
+//     while(str[i]!='\0'){
+//         i++;
+//     }
+//     return i;
+// }
+// typedef struct{
+//     int mobno;
+//     char email[151];
+//     char state[51];
+//     int pincode;
+// }contacts;
+// typedef struct{
+//     char name[101];
+//     int emp_id;
+//     contacts cont;
+// }employee;
+// void display(employee *a){
+//     printf("\nemployee name : %s\n",a->name);
+//     printf("Enter Employee Id : ");
+//     printf("%d\n",a->emp_id);
+//     printf("Enter mobile no. : ");
+//     printf("%d\n",a->cont.mobno);
+//     printf("Enter email id : %s\n",a->cont.email);
+//     printf("Enter state : %s\n",a->cont.state);
+//     printf("Enter pincode : ");
+//     printf("%d\n",a->cont.pincode);
+// }
+// void displayrecord(employee *a,int n){
+//     int i =0 ;
+//     for(i=0;i<n;i++){
+//         printf("\nRecord %d :\n",i+1);
+//         display(&a[i]);
+//         }
+// }
+// int main(){
+//     int n,i;
+//     printf("enter the no. of you want :");
+//     scanf("%d",&n);
+//     getchar();
+//     employee *a = (employee *)malloc(n*sizeof(employee));
+//     for(i=0;i<n;i++){
+//     printf("\nEnter record %d :\n",i+1);
+//     printf("Enter employee name :");    
+//     fgets(a[i].name,100,stdin);
+//     a[i].name[strlength(a[i].name)-1] = '\0';
+//     printf("Enter Employee Id : ");
+//     scanf("%d",&a[i].emp_id);
+//     printf("Enter mobile no. : ");
+//     scanf("%d",&a[i].cont.mobno);
+//     getchar();
+//     printf("Enter email id :");
+//     fgets(a[i].cont.email,150,stdin);
+//     a[i].cont.email[strlength(a[i].cont.email)-1]= '\0';
+//     printf("Enter state :");
+//     fgets(a[i].cont.state,50,stdin);
+//     a[i].cont.state[strlength(a[i].cont.state)-1]= '\0';
+//     printf("Enter pincode : ");
+//     scanf("%d",&a[i].cont.pincode);
+//     getchar();
+//     }
+//     displayrecord(a,n);
+//     return 0;
+// }
+
+//Write a text file using fputc() function
 #include <stdio.h>
-#include <string.h>
-struct student{
-    int rollno;
-    char name[101];
-    float marks;
-};
+FILE *f;
 int main(){
-    int n,i;
-    printf("Enter the number of records you want to add : ");
-    scanf("%d",&n);
-    getchar();
-    struct student rec[n];
-    for(i=0;i<n;i++){
-        printf("\nEnter record %d\n\n",i+1);
-        printf("Enter roll no. : ");
-        scanf("%d",&rec[i].rollno);
-        getchar();
-        printf("Enter name : ");
-        fgets(rec[i].name,100,stdin);
-        rec[i].name[strlen(rec[i].name)-1] = '\0';
-        printf("Enter marks : ");
-        scanf("%f",&rec[i].marks);
-        getchar();
-    }
-    int j,arr[n];
-    for(i=0;i<n;i++){
-        arr[i]=i;
-    }
-    for(j=0;j<n/2+1;j++){
-    for(i=0;i<n-1;i++){
-        if(rec[arr[i]].marks > rec[arr[i+1]].marks){
-            arr[i] = arr[i] + arr[i+1];
-            arr[i+1] = arr[i]-arr[i+1];
-            arr[i] = arr[i]-arr[i+1];
-        }
-    }
-}
-    for(i=0;i<n;i++){
-        printf("\n%d",arr[i]);
-    }
-    for(i=0;i<n;i++){
-        printf("\n\nRecord %d : ",arr[i]+1);
-        printf("\nName : %s\n",rec[arr[i]].name);
-        printf("Roll no. : %d\n",rec[arr[i]].rollno);
-        printf("Marks : %.2f\n",rec[arr[i]].marks);
-    }
+    f = fopen("file.txt","w");
+    fputc('s',f);
+    fclose(f);
     return 0;
 }
