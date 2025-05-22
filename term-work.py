@@ -608,8 +608,152 @@
 # print(f"Task 2 Result: {task.result2}")
 # print(f"Task 3 Result: {task.result3}")
 
-#21. Create a GUI program to display images from a folder and allow users to navigate through them using next/previous buttons.
+# #21. Create a GUI program to display images from a folder and allow users to navigate through them using next/previous buttons.
+# import tkinter as tk
+# from PIL import Image, ImageTk
+# import os
+# def next_image():
+#     global current_index, image
+#     current_index = (current_index + 1) % len(image_files)
+#     load_image()
+# def prev_image():
+#     global current_index, image
+#     current_index = (current_index - 1) % len(image_files)
+#     load_image()
+# def load_image():
+#     global image
+#     image_path = os.path.join(current_dir, image_files[current_index])
+#     image = Image.open(image_path)
+#     resize_image(None)
+# def resize_image(event):
+#     # Initialize dimensions
+#     if event:
+#         width = event.width
+#         height = event.height
+#     else:
+#         # For initial load, set minimum dimensions
+#         width = 800
+#         height = 600
+    
+#     if width <= 0 or height <= 0:  # Prevent division by zero
+#         return
+#     # Calculate new dimensions maintaining aspect ratio
+#     image_ratio = image.width / image.height
+#     window_ratio = width / height
+#     if window_ratio > image_ratio:
+#         new_height = height
+#         new_width = int(new_height * image_ratio)
+#     else:
+#         new_width = width
+#         new_height = int(new_width / image_ratio)
+#         # Resize image
+#     resized_image = image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+#     photo = ImageTk.PhotoImage(resized_image)
+#         # Update label
+#     image_label.configure(image=photo)
+#     image_label.image = photo
+# # Get list of images from current directory
+# current_dir = os.path.dirname(os.path.abspath(__file__))
+# image_files = [f for f in os.listdir(current_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif'))]
+# current_index = 0
+# # Initial window setup
+# main = tk.Tk()
+# main.title("Image Viewer")
+# main.geometry("800x600")
+# # Create main frame for the entire content
+# main_frame = tk.Frame(main)
+# main_frame.pack(fill='both', expand=True)
+# # Create frame for image
+# image_frame = tk.Frame(main_frame)
+# image_frame.pack(fill='both', expand=True)
+# # Create image label
+# image_label = tk.Label(image_frame)
+# image_label.pack(fill='both', expand=True)
+# # Create button frame at the bottom
+# button_frame = tk.Frame(main_frame)
+# button_frame.pack(fill='x', side=tk.BOTTOM, padx=5, pady=5)
+# # Create navigation buttons
+# prev_button = tk.Button(button_frame, text="Previous", command=prev_image)
+# prev_button.pack(side=tk.LEFT, padx=5)
+# next_button = tk.Button(button_frame, text="Next", command=next_image)
+# next_button.pack(side=tk.RIGHT, padx=5)
+# # Bind resize event to image frame instead of main frame
+# if image_files:
+#     load_image()
+#     image_frame.bind('<Configure>', resize_image)
+# main.mainloop()
+
+# #22. Design a simple calculator using Tkinter (or PyQt) with buttons for basic arithmetic operations.
+# import tkinter as tk # import tkinter
+# def button_click(value):
+#     current = buffer['text']  # Get current display text 
+#     if value == 'C':  # Clear
+#         buffer.config(text='')
+#     elif current == 'Error':
+#         buffer.config(text=''+ value)
+#     elif value == '=':  # Calculate
+#         try:
+#             result = eval(current)
+#             buffer.config(text=str(result))
+#         except:
+#             buffer.config(text='Error')
+#     else:  # Add digit/operator to display
+#         buffer.config(text=current + value)
+# main = tk.Tk() #make main window
+# main.title("calculator") #set window title
+# main.configure(bg="#2B2B2B") # set window background
+# frame = tk.Frame(main,background="white",padx= 50,pady= 50) # make calculator view window
+# frame.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.2)
+# buffer = tk.Label(
+#     frame,
+#     text="",
+#     background="white",
+#     foreground="black",
+#     anchor="e",  # 'e' for east (right) alignment
+#     justify="right",
+#     wraplength=350
+# )
+# buffer.place(relx=0.0, rely=0.1, relwidth=0.9)
+# frame2=tk.Frame(main,background="#D3D3D3",padx= 50,pady= 50) # make button frame
+# frame2.place(relx=0.05,rely= 0.3,relwidth=0.9, relheight=0.65)
+# buttons = [                 # define buttons
+#     '7', '8', '9', '/',
+#     '4', '5', '6', '*',
+#     '1', '2', '3', '-',
+#     'C', '0', '=', '+'
+# ]
+# for i, button_value in enumerate(buttons):
+#     row = i // 4  # Integer division to determine row
+#     col = i % 4   # Modulus to determine column
+#     button = tk.Button(
+#         frame2,
+#         text=button_value,
+#         background="white",
+#         foreground="black",
+#         width=5,
+#         height=2,
+#         command=lambda x=button_value: button_click(x)
+#     )
+#     button.grid(row=row, column=col, padx=5, pady=5)
+# main.geometry("500x500")
+# main.mainloop()
+
+#23. Implement a GUI temperature converter that takes input in Celsius and converts it to Fahrenheit when a button is clicked.
 import tkinter as tk
+def convert():
+    try:
+        label2.config(text=f"Fahrenheit : {(float(entry.get()) * (9/5)) + 32 }")
+    except ValueError:
+        label2.config(text="Please enter a valid number")
 main = tk.Tk()
-main.title("image viewer")
-image_frame = tk.Frame(main,background="")
+main.title("Celsius to Fahrenheit")
+main.configure(bg="#D3D3D3")
+label1 = tk.Label(main,text="Celsius : ")
+label2 = tk.Label(main,text="Fahrenheit : ")
+entry = tk.Entry(main,background="white",foreground="black")
+label1.grid(row=0,column=0)
+entry.grid(row=0,column=1,columnspan=3)
+label2.grid(row=1,column=1)
+button = tk.Button(main,text="Convert",command=convert)
+button.grid(row=2,column=1)
+main.mainloop()
