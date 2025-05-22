@@ -283,41 +283,333 @@
 # print(a * a)
 # print(a / a)
 
-#15. Implement a function that sorts a list of student objects based on multiple criteria (e.g., marks, age) using higher-order functions.
-class student():
-    def __init__(self,name,age,marks):
-        self.name = name
-        self.age = age
-        self.marks = marks
-def sortstudent(a):
-    if len(a)%2==0:
-        length = len(a)//2
-    else:
-        length = len(a)//2 +1
-    for i in range(length):
-        for j in range(i,len(a)):
-            if a[i].name == a[j].name :
-                if a[i].age == a[j].age:
-                    if a[i].marks > a[j].marks:
-                        a[i],a[j] = a[j],a[i]
-                elif a[i].age > a[i+1].age:
-                    a[i],a[j] = a[j],a[i]
-            elif a[i].name > a[i+1].name :
-                a[i],a[j] = a[j],a[i]
-# Create list of students
-a = []
-n = int(input("Enter the no of students : "))
-for i in range(n):
-    print(f"\nFor student {i+1} :\n")
-    name = input("Enter the name : ")
-    age = int(input("Enter age : "))
-    marks = float(input("Enter the marks : "))
-    # Create a new Student object for each student
-    a.append(student(name, age, marks))
+# #15. Implement a function that sorts a list of student objects based on multiple criteria (e.g., marks, age) using higher-order functions.
+# class student():
+#     def __init__(self,name,age,marks):
+#         self.name = name
+#         self.age = age
+#         self.marks = marks
+# def sortstudent(a):
+#     if len(a)%2==0:
+#         length = len(a)//2
+#     else:
+#         length = len(a)//2 +1
+#     for i in range(length):
+#         for j in range(i,len(a)):
+#             if a[i].name == a[j].name :
+#                 if a[i].age == a[j].age:
+#                     if a[i].marks > a[j].marks:
+#                         a[i],a[j] = a[j],a[i]
+#                 elif a[i].age > a[i+1].age:
+#                     a[i],a[j] = a[j],a[i]
+#             elif a[i].name > a[i+1].name :
+#                 a[i],a[j] = a[j],a[i]
+# # Create list of students
+# a = []
+# n = int(input("Enter the no of students : "))
+# for i in range(n):
+#     print(f"\nFor student {i+1} :\n")
+#     name = input("Enter the name : ")
+#     age = int(input("Enter age : "))
+#     marks = float(input("Enter the marks : "))
+#     # Create a new Student object for each student
+#     a.append(student(name, age, marks))
+# sortstudent(a)
+# print(f"\nsorted student list :\n")
+# print("\tname\t\tage\t\tmarks")
+# print("\t____\t\t___\t\t_____")
+# for i in range(n):
+#     print(f"{i+1}\t{a[i].name}\t\t{a[i].age}\t\t{a[i].marks}")
 
-sortstudent(a)
-print(f"\nsorted student list :\n")
-print("\tname\t\tage\t\tmarks")
-print("\t____\t\t___\t\t_____")
-for i in range(n):
-    print(f"{i+1}\t{a[i].name}\t\t{a[i].age}\t\t{a[i].marks}")
+# #16. Implement a Python program that simulates a race condition between multiple threads and uses synchronization techniques to prevent data corruption.(A.I)
+# import threading
+# import time
+# # Shared resource
+# class Counter:
+#     def __init__(self):
+#         self.count = 0
+#         self.lock = threading.Lock()  # Create a lock for synchronization
+    
+#     def increment_without_lock(self):
+#         # Unsafe method - demonstrates race condition
+#         current = self.count
+#         time.sleep(0.1)  # Simulate some processing time
+#         self.count = current + 1
+    
+#     def increment_with_lock(self):
+#         # Safe method - uses lock for synchronization
+#         with self.lock:
+#             current = self.count
+#             time.sleep(0.1)  # Simulate some processing time
+#             self.count = current + 1
+# #
+# def demonstrate_race_condition():
+#     counter = Counter()
+#     threads = []
+# #
+#     # Create threads without synchronization
+#     print("\nDemonstrating race condition (without lock):")
+#     for _ in range(5):
+#         thread = threading.Thread(target=counter.increment_without_lock)
+#         threads.append(thread)
+#         thread.start()
+# #
+#     # Wait for all threads to complete
+#     for thread in threads:
+#         thread.join()
+# #
+#     print(f"Expected count: 5")
+#     print(f"Actual count: {counter.count}")  # Will likely be less than 5 due to race condition
+# #
+# def demonstrate_synchronization():
+#     counter = Counter()
+#     threads = []
+# #
+#     # Create threads with synchronization
+#     print("\nDemonstrating synchronization (with lock):")
+#     for _ in range(5):
+#         thread = threading.Thread(target=counter.increment_with_lock)
+#         threads.append(thread)
+#         thread.start()
+# #
+#     # Wait for all threads to complete
+#     for thread in threads:
+#         thread.join()
+# #
+#     print(f"Expected count: 5")
+#     print(f"Actual count: {counter.count}")  # Will be exactly 5
+# #
+# if __name__ == "__main__":
+#     demonstrate_race_condition()
+#     demonstrate_synchronization()
+
+# #17. Write a program in Python to demonstrate following operations:
+# #a) Simple inheritance
+# #b) Multiple inheritance
+# # Simple Inheritance Example
+# class Animal:
+#     def __init__(self, name):
+#         self.name = name
+    
+#     def speak(self):
+#         pass
+# #
+# class Dog(Animal):  # Dog inherits from Animal
+#     def speak(self):
+#         return f"{self.name} says Woof!"
+# #
+# # Multiple Inheritance Example
+# class Vehicle:
+#     def __init__(self, brand):
+#         self.brand = brand
+    
+#     def start_engine(self):
+#         return f"{self.brand}'s engine is starting"
+# #
+# class Electric:
+#     def __init__(self, battery_capacity):
+#         self.battery_capacity = battery_capacity
+    
+#     def charge(self):
+#         return f"Charging {self.battery_capacity}kWh battery"
+# #
+# class ElectricCar(Vehicle, Electric):  # Inherits from both Vehicle and Electric
+#     def __init__(self, brand, battery_capacity):
+#         Vehicle.__init__(self, brand)
+#         Electric.__init__(self, battery_capacity)
+    
+#     def get_info(self):
+#         return f"{self.brand} EV with {self.battery_capacity}kWh battery"
+# #
+# # Create and use objects directly
+# print("\nSimple Inheritance Example:")
+# dog = Dog("Buddy")
+# print(dog.speak())
+# #
+# print("\nMultiple Inheritance Example:")
+# car = ElectricCar("Mustang", 75)
+# print(car.start_engine())
+# print(car.charge())
+# print(car.get_info())
+
+# #18. Write a Python program to store and retrieve objects using pickle.
+# import pickle
+# class Person:
+#     def __init__(self, name, age, city):
+#         self.name = name
+#         self.age = age
+#         self.city = city
+    
+#     def __str__(self):
+#         return f"Name: {self.name}, Age: {self.age}, City: {self.city}"
+# # Create list to store Person objects
+# people = []
+# # Get number of people to add
+# n = int(input("Enter number of people to add: "))
+# # Input person details
+# for i in range(n):
+#     print(f"\nEnter details for person {i+1}:")
+#     name = input("Name: ")
+#     age = int(input("Age: "))
+#     city = input("City: ")
+#     people.append(Person(name, age, city))
+# # Save to file using pickle
+# with open('people.pkl', 'wb') as file:
+#     pickle.dump(people, file)
+# print("\nData saved to file successfully!")
+# # Read from file
+# print("\nReading data from file:")
+# with open('people.pkl', 'rb') as file:
+#     loaded_people = pickle.load(file)
+# # Display loaded data
+# print("\nStored People:")
+# print("-------------")
+# for person in loaded_people:
+#     print(person)
+
+# #19. Develop a basic Python chat application that allows two users to send and receive text messages over a network.(A.I)
+# import socket
+# import threading
+# #
+# class ChatServer:
+#     def __init__(self, host='127.0.0.1', port=5555):
+#         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#         self.server.bind((host, port))
+#         self.server.listen(2)
+#         self.clients = []
+#         print(f"Server running on {host}:{port}")
+#     def broadcast(self, message, sender=None):
+#         for client in self.clients:
+#             if client != sender:
+#                 try:
+#                     client.send(message)
+#                 except:
+#                     self.clients.remove(client)
+#     def handle_client(self, client):
+#         while True:
+#             try:
+#                 message = client.recv(1024)
+#                 if message:
+#                     self.broadcast(message, client)
+#                 else:
+#                     self.clients.remove(client)
+#                     break
+#             except:
+#                 self.clients.remove(client)
+#                 break
+#     def start(self):
+#         while True:
+#             client, address = self.server.accept()
+#             print(f"Connected with {address}")
+#             self.clients.append(client)
+#             thread = threading.Thread(target=self.handle_client, args=(client,))
+#             thread.start()
+# #
+# class ChatClient:
+#     def __init__(self, host='127.0.0.1', port=5555):
+#         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#         self.client.connect((host, port))
+#         self.username = input("Enter your username: ")
+
+#     def receive_messages(self):
+#         while True:
+#             try:
+#                 message = self.client.recv(1024).decode()
+#                 print(message)
+#             except:
+#                 print("Connection lost!")
+#                 self.client.close()
+#                 break
+#     def send_messages(self):
+#         while True:
+#             try:
+#                 message = input()
+#                 if message.lower() == 'quit':
+#                     self.client.close()
+#                     break
+#                 full_message = f"{self.username}: {message}"
+#                 self.client.send(full_message.encode())
+#             except:
+#                 print("Connection lost!")
+#                 self.client.close()
+#                 break
+#     def start(self):
+#         receive_thread = threading.Thread(target=self.receive_messages)
+#         send_thread = threading.Thread(target=self.send_messages)
+#         receive_thread.start()
+#         send_thread.start()
+# # Run as server
+# if __name__ == "__main__":
+#     choice = input("Run as (s)erver or (c)lient? ").lower()
+#     if choice == 's':
+#         server = ChatServer()
+#         server.start()
+#     elif choice == 'c':
+#         client = ChatClient()
+#         client.start()
+
+# #20. Write a Python program that demonstrates multithreading by creating multiple threads that perform different tasks simultaneously.
+# import threading
+# import time
+# import random
+# #
+# class TaskThread:
+#     def __init__(self):
+#         self.result1 = 0
+#         self.result2 = 0
+#         self.result3 = 0
+#         self.lock = threading.Lock()
+#     def countdown_task(self, seconds):
+#         print(f"\nCountdown starting from {seconds} seconds")
+#         while seconds:
+#             print(f"Time remaining: {seconds} seconds")
+#             time.sleep(1)
+#             seconds -= 1
+#         with self.lock:
+#             self.result1 = "Countdown completed"
+#             print(f"\nTask 1: {self.result1}")
+#     def number_generator(self, count):
+#         print("\nGenerating random numbers")
+#         numbers = []
+#         for _ in range(count):
+#             numbers.append(random.randint(1, 100))
+#             time.sleep(0.5)
+#         with self.lock:
+#             self.result2 = sum(numbers)
+#             print(f"\nTask 2: Sum of generated numbers = {self.result2}")
+#     def fibonacci(self, n):
+#         print("\nCalculating Fibonacci sequence")
+#         a, b = 0, 1
+#         fib = []
+#         for _ in range(n):
+#             fib.append(a)
+#             a, b = b, a + b
+#             time.sleep(0.3)
+#         with self.lock:
+#             self.result3 = fib
+#             print(f"\nTask 3: Fibonacci sequence = {self.result3}")
+# # Create thread instances
+# task = TaskThread()
+# # Create threads with different tasks
+# thread1 = threading.Thread(target=task.countdown_task, args=(5,))
+# thread2 = threading.Thread(target=task.number_generator, args=(8,))
+# thread3 = threading.Thread(target=task.fibonacci, args=(10,))
+# # Start all threads
+# print("Starting all threads...\n")
+# thread1.start()
+# thread2.start()
+# thread3.start()
+# # Wait for all threads to complete
+# thread1.join()
+# thread2.join()
+# thread3.join()
+# print("\nAll tasks completed!")
+# print(f"Task 1 Result: {task.result1}")
+# print(f"Task 2 Result: {task.result2}")
+# print(f"Task 3 Result: {task.result3}")
+
+#21. Create a GUI program to display images from a folder and allow users to navigate through them using next/previous buttons.
+import tkinter as tk
+main = tk.Tk()
+main.title("image viewer")
+image_frame = tk.Frame(main,background="")
