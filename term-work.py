@@ -124,8 +124,7 @@
 # #9. Create a GUI-based calculator with buttons for digits and operators that perform calculations when clicked.
 # import tkinter as tk # import tkinter
 # def button_click(value):
-#     current = buffer['text']  # Get current display text
-    
+#     current = buffer['text']  # Get current display text 
 #     if value == 'C':  # Clear
 #         buffer.config(text='')
 #     elif current == 'Error':
@@ -189,13 +188,11 @@
 #         except ValueError:
 #             print("Please enter a valid integer")
 #     return set_items
-
 # # Get input for two sets
 # print("\tEnter elements for first set:\n")
 # set1 = create_set()
 # print("\n\tEnter elements for second set:\n")
 # set2 = create_set()
-
 # # Perform set operations
 # print("\nSet Operations Results:")
 # print(f"Set 1: {set1}\n")
@@ -204,20 +201,85 @@
 # print(f"Intersection: {set1 & set2}\n")
 # print(f"Difference (Set1 - Set2): {set1 - set2}\n")
 # print(f"Symmetric Difference: {set1 ^ set2}\n")
+# print(f"Are sets disjoint?: {set1.isdisjoint(set2)}\n")
 # print(f"Is Set1 subset of Set2?: {set1 <= set2}\n")
 # print(f"Is Set1 superset of Set2?: {set1 >= set2}\n")
 
-#11. Write a program that extracts and prints the characters from an input string that are present at prime indices (0-based index) using slicing.
-def isprime(a):
-    if a < 2 or a == 4:  # 0 and 1 are not prime
-        return False
-    elif a == 2:  # 2 is prime
-        return True
-    for i in range(2,(a//2)):
-        if a%i == 0:
-            return False
-    return True
-str = input("Enter a string : ")
-for i in range(len(str)):
-    if isprime(i):
-        print(str[i],end="")
+# #11. Write a program that extracts and prints the characters from an input string that are present at prime indices (0-based index) using slicing.
+# def isprime(a):
+#     if a < 2 or a == 4:  # 0 and 1 are not prime
+#         return False
+#     elif a == 2:  # 2 is prime
+#         return True
+#     for i in range(2,(a//2)):
+#         if a%i == 0:
+#             return False
+#     return True
+# str = input("Enter a string : ")
+# for i in range(len(str)):
+#     if isprime(i):
+#         print(str[i],end="")
+
+# #12. Write a recursive function to calculate the factorial of a number.
+# def factorial(a):
+#     if a == 1:
+#         return 1
+#     else:
+#         return factorial(a-1)*a
+# a = int(input("Enter a number : "))
+# print(factorial(a))
+
+# #13. Write a program to create two sets taking input from the user and perform the following operations on them using operators and set methods
+# #     • Union
+# #     • Intersection
+# #     • Symmetric difference
+# #     • Difference
+# #     • Sets are disjoint or not
+# def create_set():
+#     set_items = set()
+#     print("Give empty input to continue :")
+#     while True:
+#         item = input("Enter an element: ")
+#         if item == '':
+#             break
+#         try:
+#             set_items.add(int(item))
+#         except ValueError:
+#             print("Please enter a valid integer")
+#     return set_items
+# # Get input for two sets
+# print("\tEnter elements for first set:\n")
+# set1 = create_set()
+# print("\n\tEnter elements for second set:\n")
+# set2 = create_set()
+# # Perform set operations
+# print("\nSet Operations Results:")
+# print(f"Set 1: {set1}\n")
+# print(f"Set 2: {set2}\n")
+# print(f"Union: {set1 | set2}\n")
+# print(f"Intersection: {set1 & set2}\n")
+# print(f"Difference (Set1 - Set2): {set1 - set2}\n")
+# print(f"Symmetric Difference: {set1 ^ set2}\n")
+# print(f"Are sets disjoint?: {set1.isdisjoint(set2)}\n")
+# print(f"Is Set1 subset of Set2?: {set1 <= set2}\n")
+# print(f"Is Set1 superset of Set2?: {set1 >= set2}\n")
+
+# #14. Design a class for rational numbers that supports arithmetic operations (+, -, *, /) using operator overloading.
+# class arop():
+#     def __init__(self,a):
+#         self.a = a
+#     def __add__(self,o):
+#         return self.a + o.a
+#     def __sub__(self,o):
+#         return self.a - o.a
+#     def __mul__(self,o):
+#         return self.a * o.a
+#     def __truediv__(self,o):
+#         return self.a / o.a
+# a = arop(10)
+# print(a + a)
+# print(a - a)
+# print(a * a)
+# print(a / a)
+
+#
