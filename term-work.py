@@ -209,8 +209,15 @@
 
 #11. Write a program that extracts and prints the characters from an input string that are present at prime indices (0-based index) using slicing.
 def isprime(a):
-    for i in range(2,a//2):
+    if a < 2 or a == 4:  # 0 and 1 are not prime
+        return False
+    elif a == 2:  # 2 is prime
+        return True
+    for i in range(2,(a//2)):
         if a%i == 0:
-            return True
-    return False
-str = input("Enter ")
+            return False
+    return True
+str = input("Enter a string : ")
+for i in range(len(str)):
+    if isprime(i):
+        print(str[i],end="")
