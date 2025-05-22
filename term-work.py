@@ -146,6 +146,7 @@
 #     frame,
 #     text="",
 #     background="white",
+#     foreground="black",
 #     anchor="e",  # 'e' for east (right) alignment
 #     justify="right",
 #     wraplength=350
@@ -282,4 +283,41 @@
 # print(a * a)
 # print(a / a)
 
-#
+#15. Implement a function that sorts a list of student objects based on multiple criteria (e.g., marks, age) using higher-order functions.
+class student():
+    def __init__(self,name,age,marks):
+        self.name = name
+        self.age = age
+        self.marks = marks
+def sortstudent(a):
+    if len(a)%2==0:
+        length = len(a)//2
+    else:
+        length = len(a)//2 +1
+    for i in range(length):
+        for j in range(i,len(a)):
+            if a[i].name == a[j].name :
+                if a[i].age == a[j].age:
+                    if a[i].marks > a[j].marks:
+                        a[i],a[j] = a[j],a[i]
+                elif a[i].age > a[i+1].age:
+                    a[i],a[j] = a[j],a[i]
+            elif a[i].name > a[i+1].name :
+                a[i],a[j] = a[j],a[i]
+# Create list of students
+a = []
+n = int(input("Enter the no of students : "))
+for i in range(n):
+    print(f"\nFor student {i+1} :\n")
+    name = input("Enter the name : ")
+    age = int(input("Enter age : "))
+    marks = float(input("Enter the marks : "))
+    # Create a new Student object for each student
+    a.append(student(name, age, marks))
+
+sortstudent(a)
+print(f"\nsorted student list :\n")
+print("\tname\t\tage\t\tmarks")
+print("\t____\t\t___\t\t_____")
+for i in range(n):
+    print(f"{i+1}\t{a[i].name}\t\t{a[i].age}\t\t{a[i].marks}")
