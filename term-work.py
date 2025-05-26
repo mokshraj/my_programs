@@ -360,7 +360,6 @@
 # class Animal:
 #     def __init__(self, name):
 #         self.name = name
-    
 #     def speak(self):
 #         pass
 # #
@@ -372,14 +371,12 @@
 # class Vehicle:
 #     def __init__(self, brand):
 #         self.brand = brand
-    
 #     def start_engine(self):
 #         return f"{self.brand}'s engine is starting"
 # #
 # class Electric:
 #     def __init__(self, battery_capacity):
 #         self.battery_capacity = battery_capacity
-    
 #     def charge(self):
 #         return f"Charging {self.battery_capacity}kWh battery"
 # #
@@ -387,7 +384,6 @@
 #     def __init__(self, brand, battery_capacity):
 #         Vehicle.__init__(self, brand)
 #         Electric.__init__(self, battery_capacity)
-    
 #     def get_info(self):
 #         return f"{self.brand} EV with {self.battery_capacity}kWh battery"
 # #
