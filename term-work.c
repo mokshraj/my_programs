@@ -183,5 +183,213 @@
 //     return 0;
 // }
 
-//5. 
+//5. make student record using struct,find and print marks below 75%
+// #include <stdio.h>
+// #include <stdlib.h>
+// typedef struct{
+//     char name[151];
+//     int rollno;
+//     float marks[3];
+// }student;
+// int main(){
+//     int n,i;
+//     printf("Enter the no. of students : ");
+//     scanf("%d",&n);
+//     student students[n];
+//     for (i = 0; i < n; i++){
+//         printf("\nEnter the name of student %d :",i+1);
+//         scanf("%s",students[i].name);
+//         printf("Enter the roll no. : ");
+//         scanf("%d",&students[i].rollno);
+//         printf("Enter marks of subject 1 : ");
+//         scanf("%f",&students[i].marks[0]);
+//         printf("Enter marks of subject 2 : ");
+//         scanf("%f",&students[i].marks[1]);
+//         printf("Enter marks of subject 1 : ");
+//         scanf("%f",&students[i].marks[2]);
+//     }
+//     float percentage;
+//     printf("\n");
+//     for(i=0;i<n;i++){
+//         percentage =  (100*(students[i].marks[0]+students[i].marks[1]+students[i].marks[2]))/300;
+//         if(percentage<75){
+//             printf("%s -> Avg = %.2f -> Below 75\%\n",students[i].name,percentage);
+//         }
+//         else{
+//             printf("%s -> Avg = %.2f -> Passed\n",students[i].name,percentage);
+//         }
+//     }
+//     return 0;
+// }
+
+// //6. calculate attendence
+// #include <stdio.h>
+// typedef struct{
+//     char name[151];
+//     int rollno;
+//     int presents;
+// }student;
+// int main(){
+//     int i,n,total_class;
+//     printf("Enter the no. of students you want to record : ");
+//     scanf("%d",&n);
+//     printf("Enter the total no. of classes : ");
+//     scanf("%d",&total_class);
+//     student students[n];
+//     for(i=0;i<n;i++){
+//         printf("Enter name of the student %d : ",i+1);
+//         scanf("%s",students[i].name);
+//         printf("Enter roll no. : ");
+//         scanf("%d",&students[i].rollno);
+//         printf("Enter the no. of days present : ");
+//         scanf("%d",&students[i].presents);
+//     }
+//     printf("\nList of students below 75%% attendence : \n");
+//     printf("Roll no.\tAttendence\tName\n");
+//     float attendance;
+//     for(i=0;i<n;i++){
+//         attendance = ((float)students[i].presents / total_class) * 100;
+//         if(attendance<75){
+//             printf("%d\t\t%.2f%%\t\t%s\n",students[i].rollno,attendance,students[i].name);
+//         }
+//     }
+//     return 0;
+// }
+
+// //7. record and display students roll no and name of different campuses 
+// #include <stdio.h>
+// #include <stdlib.h>
+// typedef struct{
+//     char name[151];
+//     int rollno;
+// }student;
+// typedef struct {
+//     char campus_name[14];
+//     student *students;
+// }campus;
+// int main(){
+//     campus geu[4];
+//     char ch1;
+//     char ch2;
+//     int size[4] = {0};
+//     int i;
+//     for(i = 0; i < 4; i++) {
+//         geu[i].students = NULL;
+//     }
+//     while (1){
+//     menu:
+//     printf("Select campus : \n");
+//     printf("1. GEU Dehradun\n");
+//     printf("2. GEHU Dehradun\n");
+//     printf("3. GEHU Bhimtal\n");
+//     printf("4. GEHU Haldwani\n");
+//     printf("0. exit program\n");
+//     printf("\nEnter campus no. : ");
+//     scanf("%d",&ch1);
+//     if(ch1 == 0){
+//             break;
+//     }
+//     printf("\nselect function : \n");
+//     printf("1. Add students\n");
+//     printf("2. Display students\n");
+//     printf("0. exit \n");
+//     printf("\nEnter function no. : ");
+//     scanf("%d",&ch2);
+//         while(ch2==1){
+//             geu[ch1-1].students = (student *)realloc(geu[ch1-1].students,(size[ch1-1]+1)*sizeof(student));
+//             printf("Enter student roll no. : ");
+//             scanf("%d",&(geu[ch1-1].students[size[ch1-1]].rollno));
+//             printf("Enter student student name : ");
+//             scanf("%s",(geu[ch1-1].students[size[ch1-1]].name));
+//             size[ch1-1]++;
+//             printf("Enter 0 to exit or press enter to continue.......  ");
+//             while(getchar() != '\n');
+//             if(getchar()=='0'){
+//                 break;
+//             }
+//         }
+//         if(ch2==2){
+//             if(size[ch1-1] == 0) {
+//                 printf("\nNo students registered for this campus!\n");
+//             } else {
+//                 printf("\nStudent List for Campus %d:\n", ch1);
+//                 printf("Roll No.\tName\n");
+//                 printf("------------------------\n");
+//                 for(i = 0; i < size[ch1-1]; i++) {
+//                     printf("%d\t\t%s\n", 
+//                         geu[ch1-1].students[i].rollno,
+//                         geu[ch1-1].students[i].name);
+//                 }
+//                 printf("------------------------\n");
+//             }
+//         }
+//         else if(ch2 == 0){
+//             goto menu;
+//         }
+//     }
+//     for(i = 0; i < 4; i++){
+//         free(geu[i].students);
+//     }
+//     return 0;
+// }
+
+//8. Write a C program and algorithm to count the number of words, characters,lines and sentences in "essay.txt".
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+FILE *f;
+void readline(char **str, FILE *f) {
+    char ch;
+    int size = 0;
+    if (*str != NULL) {
+        free(*str);
+        *str = NULL;
+    }
+    while ((ch = fgetc(f)) != EOF && ch != '\n') {
+        *str = (char *)realloc(*str, (size + 1) * sizeof(char));
+        if (*str == NULL) {
+            printf("Memory allocation failed\n");
+            exit(1);
+        }
+        (*str)[size++] = ch;
+    }
+    *str = (char *)realloc(*str, (size + 1) * sizeof(char));
+    (*str)[size] = '\0';
+}
+int main() {
+    FILE *f = fopen("essay.txt", "r");
+    if (f == NULL) {
+        printf("Could not open file\n");
+        return 1;
+    }
+    char *str = NULL;
+    char *temp = NULL;
+    int i, lines = 0, characters = 0, sentences = 0, words = 0;
+    while (!feof(f)) {
+        readline(&str, f);
+        if (str == NULL || strlen(str) == 0) 
+            continue;
+        characters += strlen(str);
+        temp = strdup(str);  // Make a copy for strtok
+        char *token = strtok(temp, " \t");
+        while (token != NULL) {
+            words++;
+            token = strtok(NULL, " \t");
+        }
+        free(temp);
+        for (i = 0; str[i] != '\0'; i++) {
+            if (str[i] == '.') {
+                sentences++;
+            }
+        }
+        lines++;
+    }
+    printf("Information of essay.txt:\n\n");
+    printf("No. of lines: %d\n", lines);
+    printf("No. of words: %d\n", words);
+    printf("No. of sentences: %d\n", sentences);
+    printf("No. of Characters: %d\n", characters);
+    free(str);
+    fclose(f);
+    return 0;
+}
