@@ -64,14 +64,23 @@
 //             scanf("%f",&student[i][j]);
 //         }
 //     }
+//     float perct;
 //     printf("\nResult : \n\n");
+//     float topper_percentage = 0;
+//     int topper = 0;
 //     for(i=0;i<n;i++){
+//         perct=percentage(student[i],s,tol);
+//         if(perct>topper_percentage){
+//             topper_percentage = perct;
+//             topper = i;
+//         }
 //         if(failcheck(student[i],s,tol)){
-//         printf("Student %d : PASS : %.2f\n",i+1,percentage(student[i],s,tol));
+//         printf("Student %d : PASS : %.2f\n",i+1,perct);
 //         }
 //         else{
 //             printf("Student %d :FAIL\n",i+1);
 //         }
+//         printf("Topper : \nStudent %d : PASS : %.2f\n",topper+1,topper_percentage);
 //     }
 //     return 0;
 // }
@@ -183,7 +192,7 @@
 //     return 0;
 // }
 
-//5. make student record using struct,find and print marks below 75%
+// //5. make student record using struct,find and print marks below 75%
 // #include <stdio.h>
 // #include <stdlib.h>
 // typedef struct{
@@ -416,78 +425,78 @@
 //     return 0;
 // }
 
-//10.
-#include <stdio.h>
-// Recursive function to calculate factorial
-long long factorial(int n) {
-    if (n <= 1) return 1;
-    return n * factorial(n - 1);
-}
-// Recursive function to generate Fibonacci number
-int fibonacci(int n) {
-    if (n <= 1) return n;
-    return fibonacci(n - 1) + fibonacci(n - 2);
-}
-// Recursive function to find GCD/HCF
-int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
-}
-//
-void printFibonacciSeries(int terms) {
-    for(int i = 0; i < terms; i++) {
-        printf("%d ", fibonacci(i));
-    }
-    printf("\n");
-}
-//
-int main() {
-    int choice, num, terms, a, b;
-    while(1) {
-        printf("\nMathematical Operations Menu:\n");
-        printf("1. Calculate Factorial\n");
-        printf("2. Generate Fibonacci Series\n");
-        printf("3. Find GCD (HCF)\n");
-        printf("4. Exit\n");
-        printf("Enter your choice (1-4): ");
-        scanf("%d", &choice);
-        switch(choice) {
-            case 1:
-                printf("Enter a number to calculate factorial: ");
-                scanf("%d", &num);
-                if(num < 0) {
-                    printf("Please enter a non-negative number!\n");
-                } else {
-                    printf("Factorial of %d is %lld\n", num, factorial(num));
-                }
-                break;
-            case 2:
-                printf("Enter the number of terms for Fibonacci series: ");
-                scanf("%d", &terms);
-                if(terms <= 0) {
-                    printf("Please enter a positive number!\n");
-                } else {
-                    printf("Fibonacci series up to %d terms: ", terms);
-                    printFibonacciSeries(terms);
-                }
-                break;
-            case 3:
-                printf("Enter first number: ");
-                scanf("%d", &a);
-                printf("Enter second number: ");
-                scanf("%d", &b);
-                if(a < 0 || b < 0) {
-                    printf("Please enter non-negative numbers!\n");
-                } else {
-                    printf("GCD of %d and %d is %d\n", a, b, gcd(a, b));
-                }
-                break;
-            case 4:
-                printf("Thank you for using the program!\n");
-                return 0;
-            default:
-                printf("Invalid choice! Please enter a number between 1 and 4.\n");
-        }
-    }
-    return 0;
-}
+// //10. Menu-driven C program that uses recursion to perform mathematical operations including calculating the factorial of a given number, generating the Fibonacci series up to a specified number of terms, and computing the GCD (HCF) of two integers.
+// #include <stdio.h>
+// // Recursive function to calculate factorial
+// long long factorial(int n) {
+//     if (n <= 1) return 1;
+//     return n * factorial(n - 1);
+// }
+// // Recursive function to generate Fibonacci number
+// int fibonacci(int n) {
+//     if (n <= 1) return n;
+//     return fibonacci(n - 1) + fibonacci(n - 2);
+// }
+// // Recursive function to find GCD/HCF
+// int gcd(int a, int b) {
+//     if (b == 0) return a;
+//     return gcd(b, a % b);
+// }
+// //
+// void printFibonacciSeries(int terms) {
+//     for(int i = 0; i < terms; i++) {
+//         printf("%d ", fibonacci(i));
+//     }
+//     printf("\n");
+// }
+// //
+// int main() {
+//     int choice, num, terms, a, b;
+//     while(1) {
+//         printf("\nMathematical Operations Menu:\n");
+//         printf("1. Calculate Factorial\n");
+//         printf("2. Generate Fibonacci Series\n");
+//         printf("3. Find GCD (HCF)\n");
+//         printf("4. Exit\n");
+//         printf("Enter your choice (1-4): ");
+//         scanf("%d", &choice);
+//         switch(choice) {
+//             case 1:
+//                 printf("Enter a number to calculate factorial: ");
+//                 scanf("%d", &num);
+//                 if(num < 0) {
+//                     printf("Please enter a non-negative number!\n");
+//                 } else {
+//                     printf("Factorial of %d is %lld\n", num, factorial(num));
+//                 }
+//                 break;
+//             case 2:
+//                 printf("Enter the number of terms for Fibonacci series: ");
+//                 scanf("%d", &terms);
+//                 if(terms <= 0) {
+//                     printf("Please enter a positive number!\n");
+//                 } else {
+//                     printf("Fibonacci series up to %d terms: ", terms);
+//                     printFibonacciSeries(terms);
+//                 }
+//                 break;
+//             case 3:
+//                 printf("Enter first number: ");
+//                 scanf("%d", &a);
+//                 printf("Enter second number: ");
+//                 scanf("%d", &b);
+//                 if(a < 0 || b < 0) {
+//                     printf("Please enter non-negative numbers!\n");
+//                 } else {
+//                     printf("GCD of %d and %d is %d\n", a, b, gcd(a, b));
+//                 }
+//                 break;
+//             case 4:
+//                 printf("Thank you for using the program!\n");
+//                 return 0;
+//             default:
+//                 printf("Invalid choice! Please enter a number between 1 and 4.\n");
+//         }
+//     }
+//     return 0;
+// }
