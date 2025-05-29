@@ -418,35 +418,31 @@
 
 //10.
 #include <stdio.h>
-
 // Recursive function to calculate factorial
 long long factorial(int n) {
     if (n <= 1) return 1;
     return n * factorial(n - 1);
 }
-
 // Recursive function to generate Fibonacci number
 int fibonacci(int n) {
     if (n <= 1) return n;
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
-
 // Recursive function to find GCD/HCF
 int gcd(int a, int b) {
     if (b == 0) return a;
     return gcd(b, a % b);
 }
-
+//
 void printFibonacciSeries(int terms) {
     for(int i = 0; i < terms; i++) {
         printf("%d ", fibonacci(i));
     }
     printf("\n");
 }
-
+//
 int main() {
     int choice, num, terms, a, b;
-    
     while(1) {
         printf("\nMathematical Operations Menu:\n");
         printf("1. Calculate Factorial\n");
@@ -455,7 +451,6 @@ int main() {
         printf("4. Exit\n");
         printf("Enter your choice (1-4): ");
         scanf("%d", &choice);
-        
         switch(choice) {
             case 1:
                 printf("Enter a number to calculate factorial: ");
@@ -466,7 +461,6 @@ int main() {
                     printf("Factorial of %d is %lld\n", num, factorial(num));
                 }
                 break;
-                
             case 2:
                 printf("Enter the number of terms for Fibonacci series: ");
                 scanf("%d", &terms);
@@ -477,7 +471,6 @@ int main() {
                     printFibonacciSeries(terms);
                 }
                 break;
-                
             case 3:
                 printf("Enter first number: ");
                 scanf("%d", &a);
@@ -489,11 +482,9 @@ int main() {
                     printf("GCD of %d and %d is %d\n", a, b, gcd(a, b));
                 }
                 break;
-                
             case 4:
                 printf("Thank you for using the program!\n");
                 return 0;
-                
             default:
                 printf("Invalid choice! Please enter a number between 1 and 4.\n");
         }
