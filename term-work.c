@@ -333,63 +333,170 @@
 //     return 0;
 // }
 
-//8. Write a C program and algorithm to count the number of words, characters,lines and sentences in "essay.txt".
+// //8. Write a C program and algorithm to count the number of words, characters,lines and sentences in "essay.txt".
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+// FILE *f;
+// void readline(char **str, FILE *f) {
+//     char ch;
+//     int size = 0;
+//     if (*str != NULL) {
+//         free(*str);
+//         *str = NULL;
+//     }
+//     while ((ch = fgetc(f)) != EOF && ch != '\n') {
+//         *str = (char *)realloc(*str, (size + 1) * sizeof(char));
+//         if (*str == NULL) {
+//             printf("Memory allocation failed\n");
+//             exit(1);
+//         }
+//         (*str)[size++] = ch;
+//     }
+//     *str = (char *)realloc(*str, (size + 1) * sizeof(char));
+//     (*str)[size] = '\0';
+// }
+// int main() {
+//     FILE *f = fopen("essay.txt", "r");
+//     if (f == NULL) {
+//         printf("Could not open file\n");
+//         return 1;
+//     }
+//     char *str = NULL;
+//     char *temp = NULL;
+//     int i, lines = 0, characters = 0, sentences = 0, words = 0;
+//     while (!feof(f)) {
+//         readline(&str, f);
+//         if (str == NULL || strlen(str) == 0) 
+//             continue;
+//         characters += strlen(str);
+//         temp = strdup(str);  // Make a copy for strtok
+//         char *token = strtok(temp, " \t");
+//         while (token != NULL) {
+//             words++;
+//             token = strtok(NULL, " \t");
+//         }
+//         free(temp);
+//         for (i = 0; str[i] != '\0'; i++) {
+//             if (str[i] == '.') {
+//                 sentences++;
+//             }
+//         }
+//         lines++;
+//     }
+//     printf("Information of essay.txt:\n\n");
+//     printf("No. of lines: %d\n", lines);
+//     printf("No. of words: %d\n", words);
+//     printf("No. of sentences: %d\n", sentences);
+//     printf("No. of Characters: %d\n", characters);
+//     free(str);
+//     fclose(f);
+//     return 0;
+// }
+
+// //9. make a command line argument file copy program
+// #include <stdio.h>
+// FILE *f1;
+// FILE *f2;
+// int main(int argc,char *argv[]){
+//     if(argc <2){
+//         printf("too few arguments");
+//         return 0;
+//     }
+//     f1 = fopen(argv[1],"r");
+//     f2 = fopen(argv[2],"w");
+//     char ch = fgetc(f1);
+//     while (ch != EOF){
+//         fputc(ch,f2);
+//         ch = fgetc(f1);
+//     }
+//     fclose(f1);
+//     fclose(f2);
+//     printf("file copied succesfully !");
+//     return 0;
+// }
+
+//10.
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-FILE *f;
-void readline(char **str, FILE *f) {
-    char ch;
-    int size = 0;
-    if (*str != NULL) {
-        free(*str);
-        *str = NULL;
-    }
-    while ((ch = fgetc(f)) != EOF && ch != '\n') {
-        *str = (char *)realloc(*str, (size + 1) * sizeof(char));
-        if (*str == NULL) {
-            printf("Memory allocation failed\n");
-            exit(1);
-        }
-        (*str)[size++] = ch;
-    }
-    *str = (char *)realloc(*str, (size + 1) * sizeof(char));
-    (*str)[size] = '\0';
+
+// Recursive function to calculate factorial
+long long factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
 }
+
+// Recursive function to generate Fibonacci number
+int fibonacci(int n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// Recursive function to find GCD/HCF
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
+
+void printFibonacciSeries(int terms) {
+    for(int i = 0; i < terms; i++) {
+        printf("%d ", fibonacci(i));
+    }
+    printf("\n");
+}
+
 int main() {
-    FILE *f = fopen("essay.txt", "r");
-    if (f == NULL) {
-        printf("Could not open file\n");
-        return 1;
-    }
-    char *str = NULL;
-    char *temp = NULL;
-    int i, lines = 0, characters = 0, sentences = 0, words = 0;
-    while (!feof(f)) {
-        readline(&str, f);
-        if (str == NULL || strlen(str) == 0) 
-            continue;
-        characters += strlen(str);
-        temp = strdup(str);  // Make a copy for strtok
-        char *token = strtok(temp, " \t");
-        while (token != NULL) {
-            words++;
-            token = strtok(NULL, " \t");
+    int choice, num, terms, a, b;
+    
+    while(1) {
+        printf("\nMathematical Operations Menu:\n");
+        printf("1. Calculate Factorial\n");
+        printf("2. Generate Fibonacci Series\n");
+        printf("3. Find GCD (HCF)\n");
+        printf("4. Exit\n");
+        printf("Enter your choice (1-4): ");
+        scanf("%d", &choice);
+        
+        switch(choice) {
+            case 1:
+                printf("Enter a number to calculate factorial: ");
+                scanf("%d", &num);
+                if(num < 0) {
+                    printf("Please enter a non-negative number!\n");
+                } else {
+                    printf("Factorial of %d is %lld\n", num, factorial(num));
+                }
+                break;
+                
+            case 2:
+                printf("Enter the number of terms for Fibonacci series: ");
+                scanf("%d", &terms);
+                if(terms <= 0) {
+                    printf("Please enter a positive number!\n");
+                } else {
+                    printf("Fibonacci series up to %d terms: ", terms);
+                    printFibonacciSeries(terms);
+                }
+                break;
+                
+            case 3:
+                printf("Enter first number: ");
+                scanf("%d", &a);
+                printf("Enter second number: ");
+                scanf("%d", &b);
+                if(a < 0 || b < 0) {
+                    printf("Please enter non-negative numbers!\n");
+                } else {
+                    printf("GCD of %d and %d is %d\n", a, b, gcd(a, b));
+                }
+                break;
+                
+            case 4:
+                printf("Thank you for using the program!\n");
+                return 0;
+                
+            default:
+                printf("Invalid choice! Please enter a number between 1 and 4.\n");
         }
-        free(temp);
-        for (i = 0; str[i] != '\0'; i++) {
-            if (str[i] == '.') {
-                sentences++;
-            }
-        }
-        lines++;
     }
-    printf("Information of essay.txt:\n\n");
-    printf("No. of lines: %d\n", lines);
-    printf("No. of words: %d\n", words);
-    printf("No. of sentences: %d\n", sentences);
-    printf("No. of Characters: %d\n", characters);
-    free(str);
-    fclose(f);
     return 0;
 }
