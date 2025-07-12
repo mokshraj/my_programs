@@ -1,4 +1,3 @@
-import numpy as np
-# create a diagonal of ones and zeros everywhere else
-x = np.eye(69)
-print(x)
+l =  [1,2,3,4,5]
+if 4 in l:
+    print(l.index(4))
