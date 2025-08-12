@@ -296,18 +296,38 @@
 //     return 0;
 // }
 
-//13. swap two no.s using double pointers
-#include<stdio.h>
-void swap(int **a,int **b){
-    int temp = **a;
-    **a = **b;
-    **b = temp;
-}
+// //13. swap two no.s using double pointers
+// #include<stdio.h>
+// void swap(int **a,int **b){
+//     int temp = **a;
+//     **a = **b;
+//     **b = temp;
+// }
+// int main(){
+//     int a,b;
+//     scanf("%d %d",&a,&b);
+//     int *ap = &a,*bp = &b;
+//     swap(&ap,&bp);
+//     printf("%d %d",a,b);
+//     return 0;
+// }
+
+//14. sum of array elements using pointers
+#include <stdio.h>
+#include <stdlib.h>
 int main(){
-    int a,b;
-    scanf("%d %d",&a,&b);
-    int *ap = &a,*bp = &b;
-    swap(&ap,&bp);
-    printf("%d %d",a,b);
+    int n;
+    printf("Enter a no: ");
+    scanf("%d",&n);
+    int *arr = (int *)malloc(sizeof(int)*n);
+    for(int i =0 ; i<n;i++){
+        printf("Enter %d of array : ",i+1);
+        scanf("%d",(arr+i));
+    }
+    int sum = 0;
+    for(int i = 0;i<n;i++){
+        sum = sum + arr[i];
+    }
+    printf("sum of array is : %d ",sum);
     return 0;
 }
