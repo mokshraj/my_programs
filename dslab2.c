@@ -178,16 +178,136 @@
 //     return 0;
 // }
 
-//7. write a program to find length of a string using pointers.
+// //7. write a program to find length of a string using pointers.
+// #include<stdio.h>
+// int main(){
+//     char *a = "string";
+//     int len =0;
+//     while (*a != '\0')
+//     {
+//         len++;
+//         a++;
+//     }
+//     printf("%d",len);
+//     return 0;
+// }
+
+// //8. print array elements using pointer
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(){
+//     int n;
+//     printf("Enter a no: ");
+//     scanf("%d",&n);
+//     int *arr = (int *)malloc(sizeof(int)*n);
+//     for(int i =0 ; i<n;i++){
+//         printf("Enter %d of array : ",i+1);
+//         scanf("%d",(arr+i));
+//     }
+//     int *arrp;
+//     arrp = arr;
+//     for(int i = 0;i<sizeof(arr)/sizeof(int);i++){
+//         printf("%d ",arrp[i]);
+//     }
+//     return 0;
+// }
+
+// //9. sum of array elements using pointers
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(){
+//     int n;
+//     printf("Enter a no: ");
+//     scanf("%d",&n);
+//     int *arr = (int *)malloc(sizeof(int)*n);
+//     for(int i =0 ; i<n;i++){
+//         printf("Enter %d of array : ",i+1);
+//         scanf("%d",(arr+i));
+//     }
+//     int sum = 0;
+//     for(int i = 0;i<n;i++){
+//         sum = sum + arr[i];
+//     }
+//     printf("sum od array is : %d ",sum);
+//     return 0;
+// }
+
+// //10. copy one array to another using pointer
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(){
+//     int n;
+//     printf("Enter a no: ");
+//     scanf("%d",&n);
+//     int *arr1 = (int *)malloc(sizeof(int)*n);
+//     for(int i =0 ; i<n;i++){
+//         printf("Enter %d element of array : ",i+1);
+//         scanf("%d",(arr1+i));
+//     }
+//     int *arr2 = (int *)malloc(sizeof(int)*n);
+//     for(int i = 0;i<n;i++){
+//         arr2[i] = arr1[i];
+//     }
+//     for(int i = 0;i<n;i++){
+//         printf("%d ",arr2[i]);
+//     }
+//     free(arr1);
+//     free(arr2);
+//     return 0;
+// }
+
+// //11. reverse an array
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(){
+//     int n;
+//     printf("Enter a no: ");
+//     scanf("%d",&n);
+//     int *arr1 = (int *)malloc(sizeof(int)*n);
+//     for(int i =0 ; i<n;i++){
+//         printf("Enter %d of array : ",i+1);
+//         scanf("%d",(arr1+i));
+//     }
+//     int temp;
+//     for(int i = 0;i<n/2;i++){
+//         temp = arr1[i];
+//         arr1[i] = arr1[n-i-1];
+//         arr1[n-i-1] = temp;
+//     }
+//     for(int i = 0;i<n;i++){
+//         printf("%d ",arr1[i]);
+//     }
+//     free(arr1);
+//     return 0;
+// }
+
+// //12. swap two no.s using pointers
+// #include<stdio.h>
+// void swap(int *a,int *b){
+//     int temp = *a;
+//     *a = *b;
+//     *b = temp;
+// }
+// int main(){
+//     int a,b;
+//     scanf("%d %d",&a,&b);
+//     swap(&a,&b);
+//     printf("%d %d",a,b);
+//     return 0;
+// }
+
+//13. swap two no.s using double pointers
 #include<stdio.h>
+void swap(int **a,int **b){
+    int temp = **a;
+    **a = **b;
+    **b = temp;
+}
 int main(){
-    char *a = "string";
-    int len =0;
-    while (*a != '\0')
-    {
-        len++;
-        a++;
-    }
-    printf("%d",len);
+    int a,b;
+    scanf("%d %d",&a,&b);
+    int *ap = &a,*bp = &b;
+    swap(&ap,&bp);
+    printf("%d %d",a,b);
     return 0;
 }
