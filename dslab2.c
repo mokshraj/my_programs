@@ -312,22 +312,52 @@
 //     return 0;
 // }
 
-//14. sum of array elements using pointers
+// //14. sum of array elements using pointers
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(){
+//     int n;
+//     printf("Enter a no: ");
+//     scanf("%d",&n);
+//     int *arr = (int *)malloc(sizeof(int)*n);
+//     for(int i =0 ; i<n;i++){
+//         printf("Enter %d of array : ",i+1);
+//         scanf("%d",(arr+i));
+//     }
+//     int sum = 0;
+//     for(int i = 0;i<n;i++){
+//         sum = sum + arr[i];
+//     }
+//     printf("sum of array is : %d ",sum);
+//     return 0;
+// }
+
+//15. write a c program to add a dynamic 2d array using double pointer
 #include <stdio.h>
 #include <stdlib.h>
-int main(){
-    int n;
-    printf("Enter a no: ");
-    scanf("%d",&n);
-    int *arr = (int *)malloc(sizeof(int)*n);
-    for(int i =0 ; i<n;i++){
-        printf("Enter %d of array : ",i+1);
-        scanf("%d",(arr+i));
-    }
-    int sum = 0;
-    for(int i = 0;i<n;i++){
-        sum = sum + arr[i];
-    }
-    printf("sum of array is : %d ",sum);
-    return 0;
+int main()
+{
+	int  r,c;
+	scanf("%d %d",&r,&c);
+	int ** arr = (int **)malloc(sizeof(int*)*(r));
+	for(int i = 0; i<r; i++) {
+		arr[i] = (int *)malloc(sizeof(int)*(c));
+	}
+	for(int i = 0; i<r; i++) {
+		printf("%d row\n",i+1);
+		for(int j = 0; j<c; j++) {
+			scanf("%d",&arr[i][j]);
+		}
+	}
+	for(int i = 0; i<r; i++) {
+		for(int j = 0; j<c; j++) {
+			printf("%d ",arr[i][j]);
+		}
+		printf("\n");
+	}
+	for(int i = 0; i<r; i++) {
+		free(arr[i]);
+	}
+	free(arr);
+	return 0;
 }
