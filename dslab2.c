@@ -387,7 +387,7 @@ void POP(int *stack,int *top){
 void display(int stack[] ,int top){
 	printf("\n");
 	while(top!=-1){
-		printf("%d ",stack[top]);
+		printf("%d\n",stack[top]);
 		top--;
 	}
 	printf("\n\n");
@@ -397,33 +397,38 @@ void peek(int stack[],int top){
 }
 int main(){
 	int top = -1;
+	char ch;
 	int stack[MAX];
 	int choice;
 	while (1){
-	
-	printf("1.PUSH\n2.POP\n3.display\n4.peek\n5.exit\n");
-	printf("Enter a choice : ");
-	scanf("%d",&choice);
-	switch (choice)
-	{
-	case 1:
-		PUSH(stack,&top);
-		break;
-	case 2:
-		POP(stack,&top);
-		break;
-	case 3:
-		display(stack,top);
-		break;
-	case 4:
-		peek(stack,top);
-		break;
-	case 5:
-		exit(0);
-		break;
-	default:
-		printf("Invalid input");
-		break;
-	}}
+		printf("1.PUSH\n2.POP\n3.display\n4.peek\n5.exit\n");
+		printf("Enter a choice : ");
+		scanf("%d",&choice);
+		switch (choice)
+		{
+		case 1:
+			PUSH(stack,&top);
+			break;
+		case 2:
+			POP(stack,&top);
+			break;
+		case 3:
+			display(stack,top);
+			break;
+		case 4:
+			peek(stack,top);
+			break;
+		case 5:
+			exit(0);
+			break;
+		default:
+			printf("Invalid input");
+			break;
+		}
+		while (getchar() != '\n') {}
+		printf("\npress enter to continue.................. ");
+		while (getchar() != '\n') {}
+		system("clear");
+	}
 	return 0;
 }
