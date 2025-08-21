@@ -332,32 +332,98 @@
 //     return 0;
 // }
 
-//15. write a c program to add a dynamic 2d array using double pointer
-#include <stdio.h>
+// //15. write a c program to add a dynamic 2d array using double pointer
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main()
+// {
+// 	int  r,c;
+// 	scanf("%d %d",&r,&c);
+// 	int ** arr = (int **)malloc(sizeof(int*)*(r));
+// 	for(int i = 0; i<r; i++) {
+// 		arr[i] = (int *)malloc(sizeof(int)*(c));
+// 	}
+// 	for(int i = 0; i<r; i++) {
+// 		printf("%d row\n",i+1);
+// 		for(int j = 0; j<c; j++) {
+// 			scanf("%d",&arr[i][j]);
+// 		}
+// 	}
+// 	for(int i = 0; i<r; i++) {
+// 		for(int j = 0; j<c; j++) {
+// 			printf("%d ",arr[i][j]);
+// 		}
+// 		printf("\n");
+// 	}
+// 	for(int i = 0; i<r; i++) {
+// 		free(arr[i]);
+// 	}
+// 	free(arr);
+// 	return 0;
+// }
+
+//16. write a menu driver program for stack push pop display peek
+#include<stdio.h>
 #include <stdlib.h>
-int main()
-{
-	int  r,c;
-	scanf("%d %d",&r,&c);
-	int ** arr = (int **)malloc(sizeof(int*)*(r));
-	for(int i = 0; i<r; i++) {
-		arr[i] = (int *)malloc(sizeof(int)*(c));
+#define MAX 10
+void PUSH(int *stack, int *top){
+	if(*top != MAX-1){
+		int n;
+		scanf("%d",&n);
+		stack[++(*top)] = n;
 	}
-	for(int i = 0; i<r; i++) {
-		printf("%d row\n",i+1);
-		for(int j = 0; j<c; j++) {
-			scanf("%d",&arr[i][j]);
-		}
+	else{
+		perror("\nMAX top size reached\n");
 	}
-	for(int i = 0; i<r; i++) {
-		for(int j = 0; j<c; j++) {
-			printf("%d ",arr[i][j]);
-		}
-		printf("\n");
+}
+void POP(int *stack,int *top){
+	if(*top != -1){
+		(*top)--;
 	}
-	for(int i = 0; i<r; i++) {
-		free(arr[i]);
+	else{
+		perror("\nStack is empty\n");
 	}
-	free(arr);
+}
+void display(int stack[] ,int top){
+	printf("\n");
+	while(top!=-1){
+		printf("%d ",stack[top]);
+		top--;
+	}
+	printf("\n\n");
+}
+void peek(int stack[],int top){
+	printf("\n%d\n\n",stack[top]);
+}
+int main(){
+	int top = -1;
+	int stack[MAX];
+	int choice;
+	while (1){
+	
+	printf("1.PUSH\n2.POP\n3.display\n4.peek\n5.exit\n");
+	printf("Enter a choice : ");
+	scanf("%d",&choice);
+	switch (choice)
+	{
+	case 1:
+		PUSH(stack,&top);
+		break;
+	case 2:
+		POP(stack,&top);
+		break;
+	case 3:
+		display(stack,top);
+		break;
+	case 4:
+		peek(stack,top);
+		break;
+	case 5:
+		exit(0);
+		break;
+	default:
+		printf("Invalid input");
+		break;
+	}}
 	return 0;
 }
